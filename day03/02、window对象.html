@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here2</title>
+</head>
+<body>
+	<!--  
+		Window对象
+			属性：
+				opener 返回对创建此窗口的窗口的引用。 
+				self 返回对当前窗口的引用。等价于 Window 属性。 
+			方法：
+				alert() 显示带有一段消息和一个确认按钮的警告框。 	
+				confirm() 显示带有一段消息以及确认按钮和取消按钮的对话框。 
+				prompt() 显示可提示用户输入的对话框。 它有两个参数，第一个是提示信息，第二个是默认值
+	-->
+	<script type="text/javascript">
+		//alert("aaa");
+		/* var flag = confirm("确认要关闭浏览器吗");
+		//alert(flag);
+		if(flag){
+			//alert("窗口关闭");
+			window.close();
+		}else{
+			alert("什么也没做");
+		} */
+		/* var value = prompt("请输入你的名字","");
+		alert(value); */
+		var result = prompt("请输入要打印的行");
+		for(var i=0;i<result;i++){
+			document.write("<hr/>");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		/*
+			onselect 文本被选中
+			onchange 用户改变域的内容  
+		*/
+		function getCity(){
+			//得到下拉列表
+			var selectElement = document.getElementsByName("city")[0];
+			//alert(selectElement.value);取选中的value值
+			//alert(selectElement.options.length);
+			alert(selectElement.selectedIndex);
+		}
+		function selAll(){
+			alert("aaaaaa");
+		}
+	</script>
+</head>
+<body>
+	<select name="city" onchange="getCity()" >
+		<option>-----请选择-----</option>
+		<option value="beijing">北京</option>
+		<option value="shanghai">上海</option>
+		<option value="guangzhou">广州</option>
+	</select><br/><br/>
+	<input type="text" name="uName" onselect="selAll()" />
+</body>
+</html>

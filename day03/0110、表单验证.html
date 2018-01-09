@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+		span{
+			font-size:12px;
+			color:red;
+		}
+	</style>
+	<script type="text/javascript">
+		//验证用户名
+		function ckName(){
+			//得到用户名元素
+			var nameElement = document.getElementsByName("uName")[0];
+			var spanElement = document.getElementById("name");
+			spanElement.innerHTML="";
+			//判断用户名是否为空
+			if(nameElement.value == ""){
+				//innerHTML 和 innerText区别
+				//spanElement.innerHTML="<font color='red' size=''>用户名不能为空!</font>";
+				spanElement.innerHTML="用户名不能为空!";
+				return false;
+			}
+			return true;
+		}
+		//验证密码
+		function ckpwd(){
+			//得到用户名元素
+			var pwd = document.getElementsByName("pwd")[0].value;
+			var spanpwd = document.getElementById("pwd");
+			spanpwd.innerHTML="";
+			//判断密码是否为空
+			if(pwd == ""){
+				//innerHTML 和 innerText区别
+				//spanElement.innerHTML="<font color='red' size=''>用户名不能为空!</font>";
+				spanpwd.innerHTML="密码不能为空!";
+				return false;
+			}
+			//密码长度不能小于6位
+			var reg = /\w{6,}/;
+			//alert(reg.test(pwd));
+			if(!reg.test(pwd)){
+				spanpwd.innerHTML="密码长度不能小于6位!";
+				return false;
+			}
+			return true;
+		}
+			//验证密码
+			function ckrepwd(){
+				//获取密码和确认密码元素
+				var pwd = document.getElementsByName("pwd")[0].value;
+				var repwd = document.getElementsByName("repwd")[0].value;
+				var spanrepwd = document.getElementById("repwd")
+				spanrepwd.innerHTML = "";
+				if(pwd != repwd){
+					spanrepwd.innerHTML = "两次密码不一致！";
+					return false;
+				}
+				return true;
+			}
+			function ckEmail(){
+				//得到邮箱元素
+				var email = document.getElementsByName("email")[0].value;
+				var spanEmail = document.getElementById("email");
+				spanEmail.innerHTML = "";
+				//判断邮箱是否为空
+				if(email==""){
+					spanEmail.innerHTML = "邮箱不能为空";
+					return false;
+				}
+				//判断邮箱是否正确
+				var reg = /^\w+@\w+[.]\w{2,3}([.]\w{2})?$/;
+				if(!reg.test(email)){
+					spanEmail.innerHTML = "邮箱格式不正确";
+					return false;
+				}
+				return true;
+			}
+		function ckUser(){
+			var name = ckName();
+			var pwd = ckpwd();
+			var repwd = ckrepwd();
+			var email = ckEmail();
+			if(name && pwd && repwd && email){
+				return true;
+			}
+			return false; 
+			/* if(ckName() && ckpwd() && ckrepwd() && ckEmail()){
+				return true;
+			}
+			return false; */
+		}
+	</script>
+</head>
+<body>
+	<form action="0104、鼠标事件.html" onsubmit="return ckUser()" >
+		用户名：<input type="text" name="uName" onblur="ckName()" /><span id="name"></span><br/>
+		密码：<input type="password" name="pwd" onblur="ckpwd()" /><span id="pwd"></span><br/>
+		确认密码：<input type="password" name="repwd" onblur="ckrepwd()" /><span id="repwd"></span><br/>
+		邮箱：<input type="text" name="email" onblur="ckEmail()" /><span id="email"></span><br/>
+		手机号：<input type="text" name="phone" onkeyup="this.value=this.value.replace(/\D/g,'')" /><br/>
+		<input type="submit" value="注册" /> 
+	</form>
+</body>
+</html>

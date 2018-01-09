@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		//document.write("aa");
+		//document.getElementById("clock").innerHTML="hello";
+		function showTime(){
+			//document.write("aaaaa");
+			var date = new Date();
+			//document.write(date.toLocaleString());
+			//根据ID得到指定的标签元素
+			/* var div = document.getElementById("clock");
+			alert(div); */
+			document.getElementById("clock").innerHTML = date.toLocaleString();
+		}
+		//setInterval("alert('aaa')",3000);//参数1：要调用的方法，参数2：多长时间执行一次（毫秒计）
+		//var id = setInterval(showTime,1000);
+		//clearInterval();
+		//setInterval(showTime,1000);
+		//setTimeout(showTime,1000); 特点是只执行一次
+		//setTimeout("alert('时间到了')",1000);
+		var id; //定义计时对象
+		function startTime(){
+			showTime();//马上显示
+			if(id==undefined){
+				id = setInterval("showTime()",1000);
+			}
+		}
+		function stopTime(){
+			clearInterval(id);//清除计时器
+			id=undefined;
+		}
+	</script>
+</head>
+<body>
+	<!--  
+		setInterval() 按照指定的周期（以毫秒计）来调用函数或计算表达式。 
+		clearInterval() 取消由 setInterval() 设置的 timeout。 
+		
+		setTimeout() 在指定的毫秒数后调用函数或计算表达式。 
+		clearTimeout() 取消由 setTimeout() 方法设置的 timeout。 
+	-->
+	<div id="clock"></div>
+	<input type="button" value="开始" onclick="startTime()"/>
+	<input type="button" value="结束" onclick="stopTime()"/>
+</body>
+</html>

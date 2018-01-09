@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		function clearValue(){
+			var unameElement = document.getElementsByName("userName")[0];
+			if(unameElement.value=="请输入用户名"){
+				unameElement.value="";
+			}	
+		}
+		function checkName(){
+			var unameElement = document.getElementsByName("userName")[1];
+			if(unameElement.value == ""){
+				alert("用户名不能为空");
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" name="userName" value="请输入用户名" onfocus="clearValue()" />
+	<input type="text" name="userName" value="请输入用户名" onblur="checkName()" />
+</body>
+</html>

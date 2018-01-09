@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="5;url=/day09/demo1/login.html">
+<title>Insert title here</title>
+</head>
+<body onload="run()">
+<h3>页面将在<span id="spanId">5</span>秒后跳转</h3>
+</body>
+<script type="text/javascript">
+	/*
+		只要页面一加载，程序应该考试执行了
+		每隔一秒（定时器），数字变化，递减
+	*/
+	var x=5;
+	function run(){
+		var span = document.getElementById("spanId");
+		//把 x=5,赋值到span标签中间的文本内容
+		span.innerHTML = x;
+		x--;
+		//每隔一秒，变化一次
+		window.setTimeout("run()",1000);
+	}
+</script>
+</html>

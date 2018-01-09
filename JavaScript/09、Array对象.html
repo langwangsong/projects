@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	/*  
+		Array 对象
+			创建：
+				var arr = new Array();
+				var arr = new Array(5);声明同时给一个长度
+				var arr = new Array(3,5,8);
+				var arr = [12,5,8,9]; java中 int arr = {3,5,8};
+			属性:
+				length
+			方法:	
+				concat() 连接两个或更多的数组，并返回结果。 
+				join() 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。 
+				pop() 删除并返回数组的最后一个元素 
+				push() 向数组的末尾添加一个或更多元素，并返回新的长度。 
+				reverse() 颠倒数组中元素的顺序。 
+				reverse() 颠倒数组中元素的顺序。 
+				shift() 删除并返回数组的第一个元素 
+				slice() 从某个已有的数组返回选定的元素 
+				sort() 对数组的元素进行排序 
+				splice() 删除元素，并向数组添加新元素。 
+				
+	*/
+	var arr = new Array();
+	document.write(arr.length);
+	var arr1 = new Array(5);
+	document.write(arr1.length);
+	var arr2 = new Array(5,8,12);
+	document.write(arr2.length);
+	var arr3 = [1,2,3];
+	document.write(arr3.length);
+	var arr4 = ["apple","orange","banana"];
+	//document.write(arr4.join("-"));
+	arr4.push("liulian");
+	document.write(arr4+"<br/>");
+	arr4.pop();
+	document.write(arr4);
+	var arr5 = [12,5,8,23,10];
+	document.write(arr5.sort(mySort));
+	function mySort(a,b){
+		/* if(a>b){
+			return 1;
+		}
+		else if(a<b){
+			return -1;
+		}
+		else
+			return 0; */
+		return a-b;
+	}
+	var arr6 = new Array(123,"asdf",true,NaN);
+	document.write("<br/>"+arr6);
+	var arr7 = new Array();
+	arr7["啊"]="aaa";
+	document.write("<br/>" + arr7["啊"]);
+	var arr8 = ["aa","bb","cc","nb"];
+	for(var i=0;i<arr8.length;i++){
+		document.write("<br/>"+arr8[i]);
+	}
+	for(var v in arr8){
+		document.write("<br/>"+arr8[v]);
+	}
+</script>
+</body>
+</html>

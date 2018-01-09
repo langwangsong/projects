@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	/* 
+		parseInt() 解析一个字符串并返回一个整数。 
+		parseFloat() 解析一个字符串并返回一个浮点数。 
+		isNaN() 检查某个值是否是数字。 
+		eval() 计算 JavaScript 字符串，并把它作为脚本代码来执行。 
+		
+		encodeURI() 把字符串编码为 URI。 
+		decodeURI() 解码某个编码的 URI。 
+		
+		encodeURIComponent() 把字符串编码为 URI 组件。 
+		decodeURIComponent() 解码一个编码的 URI 组件。 
+		
+		escape() 对字符串进行编码。 
+		unescape() 对由 escape() 编码的字符串进行解码。 
+			
+	*/
+	/* var a="f123abc";
+	var b=parseInt(a);
+	document.write(b); */
+	/* var a="123.5eqw";
+	var b=parseFloat(a);
+	document.write(b); */
+	/* var a="aasd";
+	document.write(isNaN(a)); */
+	/* var a="123+321";
+	document.write(eval(a)); */
+	document.write(encodeURI("张?三"));
+	document.write(decodeURI("%E5%BC%A0%E4%B8%89")); 
+	document.write(encodeURIComponent("张?三"));
+	document.write(decodeURIComponent("%E5%BC%A0%3F%E4%B8%89"));
+</script>
+</body>
+</html>

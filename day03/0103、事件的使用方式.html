@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		function ff(){
+			alert("aaaaaa");
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="点我" onclick="ff()" />
+	<input type="button" value="点我" />
+	<script type="text/javascript">
+		//得到第二个input元素
+		var input2 = document.getElementsByTagName("input")[1];
+		input2.onclick = function(){
+			alert("使用对象.事件名=匿名方法");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--  
+	Location 地址栏信息
+		属性：
+			href 设置或返回完整的 URL。 
+			
+		方法：
+			reload() 重新加载当前文档。 
+			replace() 用新的文档替换当前文档。  参数给新URL
+			
+	-->
+	<script type="text/javascript">
+		function jump(url){
+			location.href = url;
+		}
+	</script>
+	<a href="http://www.baidu.com">百度</a>
+	<input type="button" value="淘宝" onclick="jump('http://www.taobao.com')" />
+	<input type="button" value="03页面" onclick="jump('03、与打开和关闭的方法.html')" />
+	<a href="javascript:location.reload()">刷新</a>
+	<a href="javascript:location.replace('03、与打开和关闭的方法.html')">03、与打开和关闭的方法</a>
+</body>
+</html>

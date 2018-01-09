@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here3</title>
+</head>
+<body>
+	<!--  
+		open() 方法用于打开一个新的浏览器窗口或查找一个已命名的窗口。
+			参数：
+				url：打开窗口文件的路径
+				name：给打开的窗口起个名字
+				features：窗口特征
+				replace：是否替换浏览历史中的当前条目
+		close() 方法用于关闭浏览器窗口。
+	-->
+	<script type="text/javascript">
+		var newwin = window.open("02、window对象.html","win1","width=300 height=200");
+		//window.open("02、window对象.html","win1","width=300 height=200");
+		alert("aa");
+		window.close();//关闭当前窗口
+		//newwin.close();//关闭被打开窗口
+	</script>
+</body>
+</html>

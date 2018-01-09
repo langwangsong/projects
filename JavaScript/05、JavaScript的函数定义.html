@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	/*
+		JS中函数定义的3种方式
+			var ff = new Function(""); 基本不用
+			var ff = function(){       不常用
+				alert("aaa");
+			} 
+			function ff(){             常用
+				
+			}
+			
+		JS中定义函数不能写返回值类型，也不写参数类型。如需返回值，在函数中直接写return即可
+	*/
+	/*
+	var ff = new Function("a","b","alert(a+b)");
+	ff(5,10);
+	*/
+	/*
+	var ff = function(){
+		alert("aaa");
+	}
+	ff();
+	*/
+	/*
+	function ff(){
+		alert("bbbbbbb");
+	}
+	ff();
+	*/
+	/*
+	window.onload = function(){
+		alert("ccccc");
+	}
+	*/
+	/*
+		java中定义方法的语法：
+			返回值类型 方法名（参数列表）{
+				方法体
+			}
+		js中定义方法的语法
+			function 方法名（参数列表）{
+				方法体	
+			}
+		无参无返回值
+		有参无返回值
+		有参有返回值
+		无参有返回值
+	*/
+	/*
+	//无参无返回值
+	function ff(){
+		alert("aaaaa");
+	}
+	//有参无返回值
+	function ff(a,b){
+		alert(a+b);
+	}
+	ff("5",10);
+	//有参有返回值
+	*/
+	function ff(a,b){
+		return a+b;
+	}
+	var number = ff(2,3);
+	alert(number);
+	//无参有返回值
+	function ff(){
+		return "aaaa"
+	}
+	alert(ff());
+</script>
+</body>
+</html>
