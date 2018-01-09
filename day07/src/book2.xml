@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	1.先引入W3C的名称空间（我是被约束的文档，实例文档）
+		xmlns="http://www.w3.org/2001/XMLSchema-instance"
+	2.引入自定义的Schema文档
+		使用xmlns=http://www.lxs.cn/0723
+	3.遇到了问题
+		元素上出现了相同名称的属性
+		怎样解决：起别名的方式(在标签出现的概率小的名称空间上起别名)
+	4.引入Schema地址（属性属于W3C）
+		xsi:schemaLocation
+	5.
+ -->
+<书架 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns="http://www.lxs.cn/0723"
+	 xsi:schemaLocation="http://www.lxs.cn/0723 book.xsd">
+	<书 出版社="哈哈哈哈">
+		<书名>Java web开发大权</书名>
+		<作者>班长</作者>
+		<售价>110</售价>
+		<简介>这书不错呀</简介>
+	</书>
+	<书 出版社="呵呵呵呵">
+		<书名>Java web开发大权</书名>
+		<作者>班长</作者>
+		<售价>110</售价>
+		<简介>这书不错呀</简介>
+	</书>
+</书架>

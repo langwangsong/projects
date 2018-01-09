@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	1.先引入W3C的名称空间
+		在根节点，使用xmlns(xml namespace)属性，引入固定的值
+		xmlns="http://www.w3.org/2001/XMLSchama"
+	2.如果是简单元素
+		使用type属性
+	3.如果是复杂元素
+		先声明标签是复杂元素
+		书出现子节点（出现的关系）
+	4.需要自己起名称空间
+		在<schema>根节点上使用属性targetNamespace="http://www.lxs.cn/0723"
+	5.在根节点指定属性(绝对的XML文档的具体的写法)
+		elementFormDefault 值是固定的（qualified）
+	
+ -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://www.lxs.cn/0723" 
+		elementFormDefault="qualified">
+	<element name="书架">
+		<complexType>
+			<sequence maxOccurs="unbounded">
+				<element name="书">
+				<!-- 声明是复杂元素 -->
+					<complexType>
+						<!-- 规定：子节点出现的关系 -->
+						<sequence>	
+							<!-- 简单元素 -->
+							<element name="书名" type="string"></element>
+							<element name="作者" type="string"></element>
+							<element name="售价" type="double"></element>
+							<element name="简介" type="string"></element>
+						</sequence>
+						<!-- 定义书的属性 -->
+						<attribute name="出版社" type="string" use="required"></attribute>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

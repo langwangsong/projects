@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		function ckAll(){
+			//得到全选元素的选中状态
+			var ckall = document.getElementById("checkall").checked;
+			//得到所有其他选项元素
+			var hobbys = document.getElementsByName("hobby");
+			//循环给选项赋值
+			for(var i=0;i<hobbys.length;i++){
+				hobbys[i].checked = ckall;
+			}
+		}
+		function ckReverse(){
+			//得到所有其他选项元素
+			var hobbys = document.getElementsByName("hobby");
+			//循环给选项赋值
+			for(var i=0;i<hobbys.length;i++){
+				hobbys[i].checked = !hobbys[i].checked;
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="checkbox" id="checkall" onclick="ckAll()" />全选/全不选<br/>
+	<input type="checkbox" id="reverse" onclick="ckReverse()" />反选<br/>
+	<input type="checkbox" name="hobby" value="football" />足球
+	<input type="checkbox" name="hobby" value="basketball" />篮球
+	<input type="checkbox" name="hobby" value="swim" />游泳
+	<input type="checkbox" name="hobby" value="singing" />唱歌<br/>
+</body>
+</html>
