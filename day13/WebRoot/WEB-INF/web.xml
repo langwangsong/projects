@@ -5,10 +5,19 @@
     <servlet-name>AccountpayServlet</servlet-name>
     <servlet-class>cn.itcast.web.AccountpayServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Accountpay2Servlet</servlet-name>
+    <servlet-class>cn.itcast.web.Accountpay2Servlet</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>AccountpayServlet</servlet-name>
     <url-pattern>/accountpay</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Accountpay2Servlet</servlet-name>
+    <url-pattern>/accountpay2</url-pattern>
   </servlet-mapping>
 
 </web-app>

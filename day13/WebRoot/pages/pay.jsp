@@ -7,8 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>支付案例</h3>
+	<h3>支付案例(第一种方式)</h3>
 	<form action="${ pageContext.request.contextPath }/accountpay" method="post">
+		付款人：<input type="text" name="fromuser" /><br/>
+		收款人：<input type="text" name="touser" /><br/>
+		金    额：<input type="text" name="money" /><br/>
+		<input type="submit" value="转账" /><br/>
+	</form>
+	<br/>
+	<h3>支付案例(第二种方式)</h3>
+	<form action="${ pageContext.request.contextPath }/accountpay2" method="post">
 		付款人：<input type="text" name="fromuser" /><br/>
 		收款人：<input type="text" name="touser" /><br/>
 		金    额：<input type="text" name="money" /><br/>
