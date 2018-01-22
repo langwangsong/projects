@@ -3,6 +3,7 @@ package cn.itcast.demo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.junit.Test;
 import cn.itcast.domain.Account;
 import cn.itcast.utils.MyDBUtils;
 import cn.itcast.utils.MyJdbcUtils3;
+import cn.itcast.utils.ResultSetHandler;
 
 /**
  * 编写一个添加数据的方法
@@ -131,9 +133,30 @@ public class Demo1 {
 		/*Account ac = new Account();
 		ac = findById(5);
 		System.out.println(ac);*/
-		List<Account> acList = this.findById();
+		/*List<Account> acList = this.findById();
 		for(Account al:acList){
 			System.out.println(al);
+		}*/
+		MyDBUtils mydb = new MyDBUtils();
+		Account ac = mydb.query("select * from t_account where id = ?", new MyBeanHandler(), 3);
+		System.out.println(ac);
+	}
+	/**
+	 * 把一条记录封装到一个JavaBean对象中
+	 */
+	class MyBeanHandler implements ResultSetHandler<Account>{
+		/**
+		 * 让我用户自己来封装结果集
+		 * @throws SQLException 
+		 */
+		public Account handle(ResultSet rs) throws SQLException{
+			Account ac = new Account();
+			if(rs.next()){
+				ac.setId(rs.getInt("id"));
+				ac.setUsername(rs.getString("username"));
+				ac.setMoney(rs.getDouble("money"));
+			}
+			return ac;
 		}
 	}
 }
