@@ -56,20 +56,20 @@
 				<td class="ta_01" bgColor="#ffffff">
 					<select name="category" id="category">
 							<option value="">--选择商品类加--</option>
-							<option value="文学" <c:if test = " ${p.category eq '文学' }" >selected</c:if> >文学</option>
-							<option value="生活" <c:if test="${p.category eq '生活' }">selected</c:if> >生活</option>
-							<option value="计算机" <c:if test="${p.category eq '计算机' }">selected</c:if> >计算机</option>
-							<option value="外语" <c:if test="${p.category eq '外语' }">selected</c:if> >外语</option>
-							<option value="经营" <c:if test="${p.category eq '经营' }">selected</c:if> >经营</option>
-							<option value="励志" <c:if test="${p.category eq '励志' }">selected</c:if> >励志</option>
-							<option value="社科" <c:if test="${p.category eq '社科' }">selected</c:if> >社科</option>
-							<option value="学术" <c:if test="${p.category eq '学术' }">selected</c:if> >学术</option>
-							<option value="少儿" <c:if test="${p.category eq '少儿' }">selected</c:if> >少儿</option>
-							<option value="艺术" <c:if test="${p.category eq '艺术' }">selected</c:if> >艺术</option>
-							<option value="原版" <c:if test="${p.category eq '原版' }">selected</c:if> >原版</option>
-							<option value="科技" <c:if test="${p.category eq '科技' }">selected</c:if> >科技</option>
-							<option value="考试" <c:if test="${p.category eq '考试' }">selected</c:if> >考试</option>
-							<option value="生活百科" <c:if test="${p.category eq '生活百科' }">selected</c:if> >生活百科</option>
+							<option value='文学' <c:if test ="${p.category eq '文学' }" >selected="selected"</c:if> >文学</option>
+							<option value='生活' <c:if test="${p.category eq '生活' }">selected="selected"</c:if> >生活</option>
+							<option value='计算机' <c:if test="${p.category eq '计算机' }">selected="selected"</c:if> >计算机</option>
+							<option value='外语' <c:if test="${p.category eq '外语' }">selected="selected"</c:if> >外语</option>
+							<option value='经营' <c:if test="${p.category eq '经营' }">selected="selected"</c:if> >经营</option>
+							<option value='励志' <c:if test="${p.category eq '励志' }">selected="selected"</c:if> >励志</option>
+							<option value='社科' <c:if test="${p.category eq '社科' }">selected="selected"</c:if> >社科</option>
+							<option value='学术' <c:if test="${p.category eq '学术' }">selected="selected"</c:if> >学术</option>
+							<option value='少儿' <c:if test="${p.category eq '少儿' }">selected="selected"</c:if> >少儿</option>
+							<option value='艺术' <c:if test="${p.category eq '艺术' }">selected="selected"</c:if> >艺术</option>
+							<option value='原版' <c:if test="${p.category eq '原版' }">selected="selected"</c:if> >原版</option>
+							<option value='科技' <c:if test="${p.category eq '科技' }">selected="selected"</c:if> >科技</option>
+							<option value='考试' <c:if test="${p.category eq '考试' }">selected="selected"</c:if> >考试</option>
+							<option value='生活百科' <c:if test="${p.category eq '生活百科' }">selected="selected"</c:if> >生活百科</option>
 					</select>
 				</td>
 			</tr>
