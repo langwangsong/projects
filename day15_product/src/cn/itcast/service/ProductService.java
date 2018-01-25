@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import cn.itcast.dao.ProductDao;
+import cn.itcast.domain.PageBean;
 import cn.itcast.domain.Product;
 import cn.itcast.utils.MyUUIDUtils;
 import cn.itcast.utils.ProductException;
@@ -74,5 +75,10 @@ public class ProductService {
 	public List<Product> findByWhere(String id, String category, String name, String minprice, String maxprice) throws SQLException {
 		ProductDao dao = new ProductDao();
 		return dao.findByWhere(id,category,name,minprice,maxprice);
+	}
+
+	public PageBean<Product> findByPage(int pageCode, int pageSize) throws SQLException {
+		ProductDao dao = new ProductDao();
+		return dao.fingByPage(pageCode,pageSize);
 	}
 }

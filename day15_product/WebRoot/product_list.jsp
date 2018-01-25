@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -18,12 +18,10 @@
 	<div id="divpagecontent">
 		<table width="100%" border="0" cellspacing="0">
 			<tr>
-
 				<td>
 					<div style="text-align:right; margin:5px 10px 5px 0px">
 						<a href="index.jsp">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;计算机&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;图书列表
 					</div>
-
 					<table cellspacing="0" class="listcontent">
 						<tr>
 							<td>
@@ -36,195 +34,64 @@
 								</div>
 
 								<table cellspacing="0" class="booklist">
+									
 									<tr>
+										<c:forEach var="p" items="${ page.beanList }">
 										<td>
-
 											<div class="divbookpic">
 												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
+													<a href="${ pageContext.request.contextPath }/initProduct?id=${p.id}"><img src="" width="115" height="129" border="0" /></a>
 												</p>
 											</div>
-
 											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-										<td>
-
-											<div class="divbookpic">
-												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
-												</p>
+												<a href="${ pageContext.request.contextPath }/initProduct?id=${p.id}">书名:${ p.name }<br />售价:${ p.price } </a>
 											</div>
-
-											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-										<td>
-
-											<div class="divbookpic">
-												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
-												</p>
-											</div>
-
-											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-										<td>
-
-											<div class="divbookpic">
-												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
-												</p>
-											</div>
-
-											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-
+										</td>
+										</c:forEach>
 									</tr>
 								</table>
-								<table cellspacing="0" class="booklist">
-									<tr>
-										<td>
-
-											<div class="divbookpic">
-												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
-												</p>
-											</div>
-
-											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-										<td>
-
-											<div class="divbookpic">
-												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
-												</p>
-											</div>
-
-											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-										<td>
-
-											<div class="divbookpic">
-												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
-												</p>
-											</div>
-
-											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-										<td>
-
-											<div class="divbookpic">
-												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
-												</p>
-											</div>
-
-											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-
-									</tr>
-								</table>
-								<table cellspacing="0" class="booklist">
-									<tr>
-										<td>
-
-											<div class="divbookpic">
-												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
-												</p>
-											</div>
-
-											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-										<td>
-
-											<div class="divbookpic">
-												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
-												</p>
-											</div>
-
-											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-										<td>
-
-											<div class="divbookpic">
-												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
-												</p>
-											</div>
-
-											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-										<td>
-
-											<div class="divbookpic">
-												<p>
-													<a href="#"><img src="" width="115" height="129"
-														border="0" /> </a>
-												</p>
-											</div>
-
-											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
-											</div></td>
-
-									</tr>
-								</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 								<div class="pagination">
 									<ul>
-
-
-										<li class="disablepage">&lt;&lt;上一页</li>
-										<li class="currentpage">1</li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-
-										<li class="nextPage"><a href="#">&lt;&lt;下一页</a></li>
-
-
+										<c:if test="${ page.pageCode > 1 }">
+											<li class="disablepage"><a href="${ pageContext.request.contextPath }/listByPage?pc=${ page.pageCode-1}">上一页</a></li>
+										</c:if>
+										<c:choose>
+											<%-- 当前总页数小于等于10，说明没有10页，页码列表应该让begin=1,end=总页数 --%>
+											<c:when test="${page.totalPage <=10 }">
+												<c:set var="begin" value="1"></c:set>
+												<c:set var="end" value="${ page.totalPage }"></c:set>
+											</c:when>
+											<%-- 说明总页数已经大于10，begin=当前页-5 end=当前页+4 --%>
+											<c:otherwise>
+												<c:set var="begin" value="${ page.pageCode - 5 }"></c:set>
+												<c:set var="end" value="${ page.pageCode + 4 }"></c:set>
+												<%-- 头部溢出（点击1到6页） --%>
+												<c:if test="${ begin<1 }">
+													<c:set var="begin" value="1"></c:set>
+													<c:set var="end" value="10"></c:set>
+												</c:if>
+												<%-- 尾部溢出 --%>
+												<c:if test="${ end > page.totalPage }">
+													<c:set var="begin" value="${ page.totalPage - 9 }"></c:set>
+													<c:set var="end" value="${ page.totalPage }"></c:set>
+												</c:if>
+											</c:otherwise>
+										</c:choose>
+										<c:forEach var="i" begin="${ begin }" end="${ end }" step="1">
+											<c:if test="${ page.pageCode eq i }">
+												<li class="current">${ i }</li>
+											</c:if>
+											<c:if test="${ page.pageCode ne i }">
+												<li><a href="${ pageContext.request.contextPath }/listByPage?pc=${i}">${ i }</a></li>
+											</c:if>
+										</c:forEach>
+										
+										<c:if test="${ page.pageCode < page.totalPage }">
+											<li class="nextPage"><a href="${ pageContext.request.contextPath }/listByPage?pc=${ page.pageCode+1}">下一页</a></li>
+										</c:if>
 									</ul>
-								</div></td>
+								</div>
+							</td>
 						</tr>
 					</table>
 				</td>

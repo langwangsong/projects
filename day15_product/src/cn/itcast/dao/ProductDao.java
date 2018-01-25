@@ -7,7 +7,9 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
+import cn.itcast.domain.PageBean;
 import cn.itcast.domain.Product;
 import cn.itcast.utils.MyJdbcUtils;
 import cn.itcast.utils.ProductException;
@@ -114,5 +116,29 @@ public class ProductDao {
 			list.add(maxprice);
 		}
 		return runner.query(sb.toString(),new BeanListHandler<Product>(Product.class),list.toArray());
+	}
+	/**
+	 * 分页查询
+	 * @param pageCode
+	 * @param pageSize
+	 * @return
+	 * @throws SQLException 
+	 */
+	public PageBean<Product> fingByPage(int pageCode, int pageSize) throws SQLException {
+		//目的：把PageBean对象中所有属性的封装全部都封装好，返回
+		PageBean<Product> page = new PageBean<Product>();
+		page.setPageCode(pageCode);
+		page.setPageSize(pageSize);
+		//还剩下总记录数和每页显示的数据
+		QueryRunner runner = new QueryRunner(MyJdbcUtils.getDataSource());
+		//page.setTotalCount(totalCount);
+		String countSql = "select count(*) from products";
+		long count =(long) runner.query(countSql, new ScalarHandler());
+		page.setTotalCount((int)count);
+		//page.setBeanList(beanList); limit关键字的使用
+		String selectSql = "select * from products limit ?,?";
+		List<Product> beanList = runner.query(selectSql, new BeanListHandler<Product>(Product.class),(pageCode - 1)*pageSize,pageSize);
+		page.setBeanList(beanList);
+		return page;
 	}
 }

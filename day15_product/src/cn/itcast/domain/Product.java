@@ -15,6 +15,14 @@ public class Product {
 	private int pnum;
 	private String category;
 	private String description;
+	//添加购买商品数量的属性
+	private int buyCount;
+	public int getBuyCount() {
+		return buyCount;
+	}
+	public void setBuyCount(int buyCount) {
+		this.buyCount = buyCount;
+	}
 	public String getId() {
 		return id;
 	}

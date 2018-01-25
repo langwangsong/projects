@@ -21,6 +21,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <h3><a href="${ pageContext.request.contextPath }/listByPage">查询所有的图书（分页）</a></h3>
   </body>
 </html>

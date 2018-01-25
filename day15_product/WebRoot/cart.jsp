@@ -1,12 +1,16 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>电子书城</title>
 <link rel="stylesheet" href="css/main.css" type="text/css" />
-
-
-
+<script type="text/javascript">
+	//修改商品的数量，id代表商品的主键，count代表要
+	function changeCount(id,count){
+		window.location.href="${pageContext.request.contextPath}/changeCartCount?id="+id+"&count="+count;
+	}
+</script>
 </head>
 
 <body class="main">
@@ -21,7 +25,7 @@
 			<tr>
 
 				<td><div style="text-align:right; margin:5px 10px 5px 0px">
-						<a href="index.html">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;购物车
+						<a href="index.jsp">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;购物车
 					</div>
 
 					<table cellspacing="0" class="infocontent">
@@ -45,29 +49,25 @@
 													<td width="10%">取消</td>
 												</tr>
 											</table> 
-											
+												<!-- 显示购物车中的数据 -->
 												<table width="100%" border="0" cellspacing="0">
-													<tr>
-														<td width="10%">${vs.count}</td>
-														<td width="30%">${entry.key.name }</td>
-
-														<td width="10%">${entry.key.price }</td>
-														<td width="20%"><input type="button" value='-'
-															style="width:20px"
-															onclick="changeProductNum('${entry.value-1}','${entry.key.pnum}','${entry.key.id}')">
-
-															<input name="text" type="text" value="${entry.value}"
-															style="width:40px;text-align:center" /> <input
-															type="button" value='+' style="width:20px"
-															onclick="changeProductNum('${entry.value+1}','${entry.key.pnum}','${entry.key.id}')">
-
-														</td>
-														<td width="10%">${entry.key.pnum}</td>
-														<td width="10%">${entry.key.price*entry.value}</td>
-
-														<td width="10%"><a href="${pageContext.request.contextPath}/changeCart?id=${entry.key.id}&count=0"
-															style="color:#FF0000; font-weight:bold">X</a></td>
-													</tr>
+													<c:forEach var="entry" items="${ cart }" varStatus="vs">
+														<tr>
+															<td width="10%">${vs.count}</td>
+															<td width="30%">${entry.value.name }</td>
+	
+															<td width="10%">${entry.value.price }</td>
+															<td width="20%">
+																<input type="button" value='-' style="width:20px" onclick="changeCount('${ entry.value.id}','${ entry.value.buyCount - 1 }')" >
+																<input name="text" type="text" value="${entry.value.buyCount}" style="width:40px;text-align:center" /> 
+																<input type="button" value='+' style="width:20px" onclick="changeCount('${ entry.value.id}','${ entry.value.buyCount + 1 }')" >
+															</td>
+															<td width="10%">${entry.value.pnum}</td>
+															<td width="10%">${entry.value.price*entry.value.buyCount}</td>
+	
+															<td width="10%"><a href="${pageContext.request.contextPath}/changeCartCount?id=${entry.value.id}&count=0"style="color:#FF0000; font-weight:bold">X</a></td>
+														</tr>
+													</c:forEach>
 												</table>
 												
 
@@ -80,9 +80,7 @@
 												</tr>
 											</table>
 											<div style="text-align:right; margin-top:10px">
-												<a
-													href="${pageContext.request.contextPath}/showProductByPage"><img
-													src="images/gwc_jx.gif" border="0" /> </a>
+												<a href="${pageContext.request.contextPath}/listByPage"><img src="images/gwc_jx.gif" border="0" /> </a>
 
 												&nbsp;&nbsp;&nbsp;&nbsp;<a
 													href="${pageContext.request.contextPath}/order.jsp"><img
