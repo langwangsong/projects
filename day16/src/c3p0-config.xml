@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<!-- 默认的配置，如果连接池没有指定的名称的配置，读取默认的配置 -->
+	<default-config>
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql:///mysql1</property>
+		<property name="user">root</property>
+		<property name="password">root</property>
+	</default-config>
+	<!-- 指定名称的配置 -->
+	<named-config name="myc3p0">
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql:///mysql1</property>
+		<property name="user">root</property>
+		<property name="password">root</property>
+	</named-config>
+</c3p0-config>

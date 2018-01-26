@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+  <servlet>
+    <servlet-name>Ajax1Servlet</servlet-name>
+    <servlet-class>cn.itcast.ajax.Ajax1Servlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Ajax2Servlet</servlet-name>
+    <servlet-class>cn.itcast.ajax.Ajax2Servlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CheckServlet</servlet-name>
+    <servlet-class>cn.itcast.ajax.CheckServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Json1Servlet</servlet-name>
+    <servlet-class>cn.itcast.ajax.Json1Servlet</servlet-class>
+  </servlet>
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>Ajax1Servlet</servlet-name>
+    <url-pattern>/ajax1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Ajax2Servlet</servlet-name>
+    <url-pattern>/ajax2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckServlet</servlet-name>
+    <url-pattern>/check</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Json1Servlet</servlet-name>
+    <url-pattern>/json1</url-pattern>
+  </servlet-mapping>
+
+</web-app>
