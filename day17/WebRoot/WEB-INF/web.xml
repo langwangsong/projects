@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name></display-name>
+<!-- 配置监听器 -->
+<!--
+<listener>
+	<listener-class>cn.itcast.listener.MyContextListener</listener-class>
+</listener>
+<listener>
+	<listener-class>cn.itcast.listener.MysessionListener</listener-class>
+</listener>
+<listener>
+	<listener-class>cn.itcast.listener.MyRequestListener</listener-class>
+</listener>
+<listener>
+	<listener-class>cn.itcast.listener1.MySessionAttributeListener</listener-class>
+</listener>
+-->
+<!-- 配置全局的初始化参数 -->
+<context-param>
+	<param-name>myPath</param-name>
+	<param-value>/day17123</param-value>
+</context-param>
+
+</web-app>
