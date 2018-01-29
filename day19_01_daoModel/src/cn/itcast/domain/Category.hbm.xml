@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 映射类和表的关系 -->
+	<class name="cn.itcast.domain.Category" table="CATEGORIES">
+		<!-- 映射主键
+			id：指JavaBean中的属性名（getter或setter方法）
+		 -->
+		<id name="id" column="ID">
+			<!-- 指定主键生成策略
+				native：用数据库自动增长的能力
+			 -->
+			 <generator class="native" ></generator>
+		</id>
+		<property name="name" column="NAME"></property>
+	</class>
+</hibernate-mapping>
