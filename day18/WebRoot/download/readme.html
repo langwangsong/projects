@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>readme</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h2>课程回顾：监听器和过滤器</h2>
+<hr />
+<p><strong>监听器（listener）</strong></p>
+<pre><code>1.监听器的概述：一个Java的类监听另一个Java的类的状态的改变
+2.监听器的概念
+    * 事件源               
+    * 监听器
+    * 绑定监听器
+    * 事件            -- 可以获取到事件源对象
+
+3.WEB的监听器
+    * 监听3个域对象
+    * 3个域对象创建和销毁
+    * 域对象中的属性的状态改变
+    * 监听session中的JavaBean的状态改变      
+
+    * 实现监听器的接口，实现方法
+    * 编写配置文件，在web.xml中
+        &lt;listener&gt;
+            &lt;listener-class&gt;
+4.种类
+    * 监听3个域对象创建和销毁
+    * 域对象中的属性的状态改变
+    * 监听session中的JavaBean的状态改变
+        * 绑定和解除绑定监听器
+        * 钝化和活化监听器
+
+        * 编写JavaBean，实现上述接口
+        * 不用编写配置文件
+</code></pre>
+
+<hr />
+<p><strong>过滤器（filter）</strong></p>
+<pre><code>1.概述
+    * 它不是目标资源，访问目标资源的前后执行的。
+2.filter开发的入门
+    * 实现Filter接口（javax.servlet包），有3个方法
+        * init(FilterConfig)                            -- 初始化（服务器启动的时候创建过滤器的实例对象）
+        * doFilter(request,response,Filterchain)        -- 拦截（放行）
+        * destory()                                     -- 销毁
+
+    * 完成配置
+
+3.FilterChain接口
+    * 代表的过滤器链（多个过滤器组成的）
+    * 实现类由Tomcat服务器创建的，由Tocmat服务器来调用
+    * doFilter(request,response);
+
+4.生命周期
+
+5.FilterConfig接口
+    * 代表的过滤器的配置文件相关的信息
+    * 获取getServletContext()
+
+6.配置
+    * 基本配置
+    * 初始化参数
+    * &lt;url-pattern&gt;配置
+        * 完全路径匹配（过滤器很少用）
+        * 目录匹配（/*）
+        * 扩展名匹配（*.jsp）
+
+    * &lt;dispatcher&gt;标签
+        * REQUEST           -- 代表默认值
+        * FORWARD           
+        * INCLUDE
+        * ERROR     
+
+7.自动登录
+    * 完成登录功能
+    * 使用cookie技术记住用户名和密码
+    * 使用过滤器来完成自动登录功能
+
+8.解决request中文乱码问题
+    * 装饰模式
+        * 是你还有你，一切拜托你！！
+        * 增强的类与被增强的类实现相同的接口。
+        * 增强的类可以获取到被增强类的引用  
+</code></pre>
+
+<hr />
+<h2>今天内容：文件的上传和下载</h2>
+<hr />
+<h3>文件上传的概述</h3>
+<hr />
+<p><strong>文件上传的概述</strong></p>
+<pre><code>1.文件上传的概述：把本地的文件上传到指定的服务器端。
+2.例子：上传照片、邮件
+3.完成文件的上传，需要两块知识
+    * 客户端
+        * 选择要上传的文件
+        * 客户端的三个注意事项（必须记住）
+            * &lt;input type=&quot;file&quot; &gt; 需要使用它来完成文件的选择
+            * 1.表单的提交的方式必须是post     
+            * 2.&lt;input type=&quot;file&quot; name=&quot;myfile&quot;&gt;   文件的选择项必须要指定name的值，值可以任意。
+            * 3.表单中有一个属性，enctype=&quot;multipart/form-data&quot;
+
+    * 服务器端
+        * 接收上传的文件，保存到指定的文件夹下
+        * 在服务器端使用FileUpload组件来完成文件的上传   
+</code></pre>
+
+<hr />
+<p><strong>Fileupload文件上传的组件</strong></p>
+<pre><code>1.文件上传组件
+    * JspSmartUpload        -- 文件上传的组件，使用JSP的model1模式
+    * FileUpload            -- 文件上传的组件，适用model2的模式
+
+2.FileUpload组件是apache提供的开源的上传文件
+    * 导入jar包
+        * commons-fileupload-1.2.1.jar
+        * commons-io-1.4.jar
+</code></pre>
+
+<hr />
+<p><strong>文件上传入门案例</strong></p>
+<pre><code>1.开发的步骤
+    * 1.创建工厂类
+    * 2.创建文件上传类
+    * 3.解析request请求，返回List集合
+    * 4.遍历该list集合，获取到集合中的每一个元素
+    * 5.根据不同的方法来完成文件的上传
+</code></pre>
+
+<hr />
+<h3>FileUpload组件的类和方法</h3>
+<hr />
+<p><strong>DiskFileItemFactory类</strong></p>
+<pre><code>1.DiskFileItemFactory：代表磁盘文件项工厂类，作用：用来生产FileItem对象的。
+2.方法
+    * DiskFileItemFactory()                 
+    * DiskFileItemFactory(int sizeThreshold, java.io.File repository)   
+        * sizeThreshold     设置上传文件的缓冲区的大小
+        * repository        设置临时文件的存储目录
+
+    * void setSizeThreshold(int sizeThreshold)          -- 设置缓冲区的大小
+    * void setRepository(java.io.File repository)       -- 设置临时文件的存储目录（上传的文件超过了缓冲区的大小，产生临时文件）
+
+3.总结
+    * 上述的这两个方法，如果不设置都有默认值的。
+</code></pre>
+
+<hr />
+<p><strong>ServletFileUpload类（解析request）</strong></p>
+<pre><code>1.ServletFileUplod  代表的文件上传的类，作用：用来解析request请求。
+2.方法
+    * ServletFileUpload(FileItemFactory fileItemFactory)
+    * static boolean isMultipartContent(javax.servlet.http.HttpServletRequest request)      -- 判断表单的enctype值设置的是否正确
+    * java.util.List parseRequest(javax.servlet.http.HttpServletRequest request)            -- 解析request请求，返回的是List集合
+    * void setHeaderEncoding(java.lang.String encoding)                                     -- 解决中文文件名称乱码的问题。
+    * void setFileSizeMax(long fileSizeMax)                                                 -- 设置单个上传文件的大小
+    * void setSizeMax(long sizeMax)                                                         -- 设置总大小
+
+3.总结（掌握）
+    * parseRequest(request)     -- 解析request请求
+    * setHeaderEncoding()       -- 解决中文乱码问题呢
+    * setSizeMax()              -- 设置上传文件的总大小   
+</code></pre>
+
+<hr />
+<p><strong>FileItem类（文件项）</strong></p>
+<pre><code>1.FileItem类：代表文件项（普通表单项，又有可能文件的上传项）
+2.方法
+    * boolean isFormField() 
+        * 判断当前的fileItem对象是否是普通表单项还是文件上传项？如果返回true，说明是普通表单项，如果是false，是文件上传项
+
+    * 如果是普通表单项
+        * java.lang.String getFieldName()                   -- 获取的表单中的name属性的值（例如：filedesc）
+        * java.lang.String getString()                      -- 获取到用户输入的值（没有解决乱码的问题）
+        * java.lang.String  getString(String encoding)      -- 获取到用户输入的值（解决中文乱码问题）
+
+    * 如果是文件上传项
+        * java.lang.String getName()                        -- 获取的上传文件的名称（ServletFileUpload类中setHeaderEncoding()解决中文乱码）
+        * java.io.InputStream getInputStream()              -- 获取到上传文件的输入流
+        * void write(java.io.File file)                     -- 直接写入文件
+        * void delete()                                     -- 删除临时文件的（注意：删除的代码需要放在流关闭之后）
+</code></pre>
+
+<hr />
+<p><strong>文件上传存在的问题</strong></p>
+<pre><code>1.需要注意：
+    * 如果浏览器是IE的一些版本（IE6肯定存在该问题），如果使用的是IE6版本的浏览器，选择文件的时候，选择完文件，点击上传。
+    * 在Servlet中获取到的文件名称是包含文件的路径的。
+
+2.使用request对象的时候，request.getParameter()方法，在文件上传中，使用的enctype=&quot;multipart/form-data&quot;方式，那么request.getParameter()获取不到值了。
+</code></pre>
+
+<hr />
+<p><strong>多文件上传（js控制多个上传输入项）</strong></p>
+<pre><code>1.多文件上传
+    * 需求：点击添加按钮，生成多个文件的上传项。点击删除的按钮，删除该个上传项。点击上传按钮，把选择的所有的文件上传到服务器端。
+    * 前台和后台
+</code></pre>
+
+<hr />
+<p><strong>文件上传扩展</strong></p>
+<pre><code>1.一共有3个问题
+    * 上传的文件保存的路径的问题
+        * 把该文件夹直接存放到WebRoot目录下，说明上传的文件不用考虑安全性问题。开源共享的。
+            * 访问的购物网站，有很多图片，点击查看。
+
+        * 把该文件夹存放在WEB-INF的目录，存放该目录下的文件，不能被直接访问的，必须要通过程序去访问。
+            * 使用程序来完成一些权限的校验。
+
+    * 上传文件的名称重名的问题
+        * 如果之前传过，又传了相同名称的文件，覆盖掉之前的文件。
+        * 需要把文件的名称给修改了，名称修改成唯一的字符串。
+
+    * 同一个文件夹下文件过多的问题    
+        * 解决同一个文件夹下文件过多的问题
+            * 上传文件的时间
+            * 根据用户
+            * 根据上传的文件夹存储文件的数量
+            * 编写目录分离的算法
+</code></pre>
+
+<hr />
+<h3>文件下载</h3>
+<hr />
+<p><strong>文件下载的入门</strong></p>
+<pre><code>1.文件下载的概述
+    * 把服务器端的文件下载到本地。
+
+2.WEB完成文件下载有哪些方式？
+    * 超链接就可以完成文件（用户体验不好）
+    * 使用Servlet的方式来完成文件下载（可以弹出下载窗口）
+
+3.记住：文件下载的简单的话
+    * 两个头，一个流
+    * 两个头
+        * 设置两个相应头
+            * Content-Type              -- 代表的是文件名称的MIME类型
+            * Content-Disposition       -- 代表弹出的下载的窗口，值是固定的：attachment;filename=+文件名称
+
+    * 一个流
+        * 要下载哪个文件，需要获取到该文件的输入流
+
+4.准备工作
+    * 先准备好要下载的文件和JSP的页面
+</code></pre>
+
+<hr />
+<p><strong>文件下载的扩展案例</strong></p>
+<pre><code>1.需求：把C盘下root文件夹及其子文件中的所有的文件遍历出来，显示到页面上，提供下载。
+2.用到的知识
+    * 树形结构
+    * 队列        
+
+    * root文件夹及其子文件中的所有的文件遍历出来
+        * 树形结构的知识
+        * 队列（先进先出）
+        * 代码
+            &lt;% 
+                // 需要队列
+                Queue&lt;File&gt; queue = new LinkedList&lt;File&gt;();
+                // 先把根节点入队
+                String rootpath = &quot;d:\\root&quot;;
+                File rootFile = new File(rootpath);
+                // 入队
+                queue.offer(rootFile);
+                // 编写循环的条件
+                while(!queue.isEmpty()){
+                    // 把队列中的元素出队（先进先出）
+                    File file = queue.poll();
+                    // 获取该节点下的所有的子节点
+                    File [] files = file.listFiles();
+                    for(File f : files){
+                        // 没循环一次，做判断，如果是文件，显示到页面上，如果是文件夹，继续入队
+                        if(f.isFile()){
+                            // 显示
+
+            %&gt;              
+                &lt;h4&gt;&lt;a href=&quot;${ pageContext.request.contextPath }/moredownload?filepath=&lt;%=f.getAbsolutePath()%&gt;&quot;&gt;&lt;%=f.getName() %&gt;&lt;/a&gt;&lt;/h4&gt;
+            &lt;%          
+                        }else{
+                            // 说明是文件夹
+                            // 继续入队
+                            queue.offer(f);
+                        }
+                    }
+                }
+            %&gt;
+
+    * 完成文件的下载
+</code></pre>
+
+<hr />
+<p><strong>文件下载的时候显示中文乱码</strong></p>
+<pre><code>1.产生的原因：浏览器采用的编码URL编码或者BASE64编码。
+2.解决的方案：根据不同的浏览器的采用不同的编码
+    * IE 采用的URL编码 谷歌 采用的URL编码 火狐 采用的是BASE64编码
+
+3.想根据浏览器的编码不同，解决问题，判断浏览器，判断当前正在使用什么浏览器？
+    * 使用请求头 user-agent 
+</code></pre>
+
+<hr />
+<p><strong>添加商品，上传图片</strong></p>
+<pre><code>1.准备环境
+    * 使用FileUpload来完成文件上传，需要导入jar包。
+    * 修改数据库的表结构，需要添加一些字段。
+        * alter table products add filename varchar(50)
+        * alter table products add imgurl varchar(300)
+
+    * 找到页面，开始编写程序
+</code></pre>
+
+<hr />
+<p><strong>课程总结</strong></p>
+<hr />
+<p><strong>文件上传</strong></p>
+<pre><code>1.文件上传概述
+    * 把本地的文件上传到服务器端
+2.客户端有三个注意事项
+    * method=&quot;post&quot;
+    * type=&quot;file&quot; name=&quot;任意&quot;
+    * enctype=&quot;multipart/form-data&quot;
+
+3.完成fileupload组件的学习
+    * DiskFileItemFactory   工厂类，创建FileItem对象的
+        * 设置缓冲区的大小
+        * 设置临时文件的存储目录
+
+    * ServletFileUpload类，解析request请求
+        * parseRequest(request)     -- 解析request请求
+        * setHeaderEncoding()       -- 解决中文文件名称乱码的问题
+        * setSizeMax()
+        * setFileSizeMax()
+
+    * FileItem接口
+        * isFormField()
+        * getFieldName()
+        * getString(&quot;UTF-8&quot;)
+        * getName()
+        * getInputStream()
+        * delete()
+
+4.文件上传存在的问题 
+    * 如果浏览器是IE6，上传文件的名称是带盘符，自己进行切割。
+    * request.getParameter()不能获取到数据了。
+
+5.多文件上传
+
+6.文件上传 扩展
+    * 上传文件夹存在哪？
+    * 文件名称重名的问题
+        * 使用UUID
+    * 解决同一个文件夹下文件过多的问题
+</code></pre>
+
+<h2>			* 目录分离的算法</h2>
+<p><strong>文件下载</strong></p>
+<pre><code>1.下载的概述和入门
+    * 入门程序
+        * 两个头一个流
+            * content-type              -- 值是MIME的类型
+            * content-disposition       -- attachment;filename=文件名称
+
+        * 获取文件输入流
+
+2.下载的案例
+    * 树形结构和队列
+
+3.解决中文乱码问题
+    * 弹出下载的窗口，上面显示的中文乱码的。
+    * 根据不同的浏览器，采用不同的编码来进行解决
+</code></pre>
+
+<hr />
+<p><strong>文件上传和添加数据</strong></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

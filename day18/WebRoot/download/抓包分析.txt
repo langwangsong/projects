@@ -1,0 +1,51 @@
+=======================enctype="application/x-www-form-urlencoded"============================
+
+POST /day18/pages/upload.jsp HTTP/1.1
+Accept: application/x-ms-application, image/jpeg, application/xaml+xml, image/gif, image/pjpeg, application/x-ms-xbap, application/x-shockwave-flash, */*
+Referer: http://localhost/day18/pages/upload.jsp
+Accept-Language: zh-CN
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C)
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip, deflate
+Host: localhost
+Content-Length: 30
+Connection: Keep-Alive
+Cache-Control: no-cache
+Cookie: JSESSIONID=44B6FD0F51236E37DA20F63A928D7588
+
+filedesc=haha&myfile=hello.txt
+
+======================只有文件名称，但是没有文件的内容====================================
+
+
+======================enctype="multipart/form-data"=================================================
+
+POST /day18/pages/upload.jsp HTTP/1.1
+Accept: application/x-ms-application, image/jpeg, application/xaml+xml, image/gif, image/pjpeg, application/x-ms-xbap, application/x-shockwave-flash, */*
+Referer: http://localhost/day18/pages/upload.jsp
+Accept-Language: zh-CN
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C)
+Content-Type: multipart/form-data; boundary=---------------------------7df1f1ba0660
+Accept-Encoding: gzip, deflate
+Host: localhost
+Content-Length: 388
+Connection: Keep-Alive
+Cache-Control: no-cache
+Cookie: JSESSIONID=801FFE857B79D8F6904E36C5ABBEE062
+
+-----------------------------7df1f1ba0660
+Content-Disposition: form-data; name="filedesc"
+
+meimei
+-----------------------------7df1f1ba0660
+Content-Disposition: form-data; name="myfile"; filename="hello.txt"
+Content-Type: text/plain
+
+class test{
+	public static void main(String [] args){
+		System.out.println("hello world");
+	}
+}
+-----------------------------7df1f1ba0660--
+
+========================既有文件名称，又有文件的内容，满足文件上传的条件===================================
