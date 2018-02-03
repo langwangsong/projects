@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>day20_bookstore</display-name>
+  <!-- 配置编码过滤器 -->
+  <filter>
+  	<filter-name>SetCharacterEncodingFilter</filter-name>
+  	<filter-class>cn.itcast.filter.SetCharacterEncodingFilter</filter-class>
+  </filter>
+  <!-- 参数不配，有默认值UTF-8 --> 
+  <filter-mapping>
+  	<filter-name>SetCharacterEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!-- 动态资源不要缓存 -->
+  <filter>
+  	<filter-name>DynamicResourcesNoCacheFilter</filter-name>
+  	<filter-class>cn.itcast.filter.DynamicResourcesNoCacheFilter</filter-class>
+  </filter>
+  <!-- 参数不配，有默认值UTF-8 --> 
+  <filter-mapping>
+  	<filter-name>DynamicResourcesNoCacheFilter</filter-name>
+  	<url-pattern>/manage/*</url-pattern>
+  	<url-pattern>/client/*</url-pattern>
+  	<url-pattern>*.jsp</url-pattern>
+  </filter-mapping> 
+  <!-- 权限过滤器 -->
+  <!--   -->
+  <filter>
+  	<filter-name>PrivilegeFilter</filter-name>
+  	<filter-class>cn.itcast.filter.PrivilegeFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>PrivilegeFilter</filter-name>
+  	<url-pattern>/manage/*</url-pattern>
+  	<url-pattern>/privilege/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+    <servlet-name>ManageServlet</servlet-name>
+    <servlet-class>cn.itcast.web.controller.ManageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ClientServlet</servlet-name>
+    <servlet-class>cn.itcast.web.controller.ClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PayUIServlet</servlet-name>
+    <servlet-class>cn.itcast.web.controller.PayUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PayServlet</servlet-name>
+    <servlet-class>cn.itcast.web.controller.PayServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PaymentResponse</servlet-name>
+    <servlet-class>cn.itcast.web.controller.PaymentResponse</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PrivilegeServlet</servlet-name>
+    <servlet-class>cn.itcast.web.controller.PrivilegeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>cn.itcast.web.controller.LoginServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>ManageServlet</servlet-name>
+    <url-pattern>/manage/ManageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ClientServlet</servlet-name>
+    <url-pattern>/client/ClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PayUIServlet</servlet-name>
+    <url-pattern>/client/PayUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PayServlet</servlet-name>
+    <url-pattern>/client/PayServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PaymentResponse</servlet-name>
+    <url-pattern>/client/PaymentResponse</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PrivilegeServlet</servlet-name>
+    <url-pattern>/privilege/PrivilegeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/passport/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+  	<welcome-file>/client/index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
