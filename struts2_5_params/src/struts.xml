@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="p1" extends="struts-default">
+		<action name="demo1" class="com.itheima.action.Demo1Action">
+			<!-- 静态参数注入：Demo1Action.setName("其他值") -->
+			<param name="name">黑马程序员</param>
+		</action>
+		<!-- 动作类充当模型对象 -->
+		<action name="demo2" class="com.itheima.action.Demo2Action">
+		</action>
+		<action name="demo3" class="com.itheima.action.Demo3Action">
+		</action>
+		<action name="demo4" class="com.itheima.action.Demo4Action">
+		</action>
+	</package>
+</struts>

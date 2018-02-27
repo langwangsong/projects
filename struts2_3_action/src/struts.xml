@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="p3" extends="struts-default">
+		<action name="demo5" class="com.itheima.action.Demo5Action" method="execute">
+			<result name="success" type="dispatcher">/success.jsp</result>
+		</action>
+	</package>
+	<!-- <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant> -->
+	<package name="p1" extends="struts-default">
+		<action name="demo1" class="com.itheima.action.Demo1Action" method="save"></action>
+		<action name="demo2" >
+			<result name="success">/success.jsp</result>
+		</action>
+	</package>
+	<package name="p2" extends="struts-default">
+		<!-- 约定优于编码：遵守好的约定，会使你的代码开发更加高效 -->
+		<!--  
+		<action name="saveUser" class="com.itheima.action.Demo3Action" method="saveUser">
+			<result name="success">/saveUser.jsp</result>
+		</action>
+		<action name="updateUser" class="com.itheima.action.Demo3Action" method="updateUser">
+			<result name="success">/updateUser.jsp</result>
+		</action>
+		-->
+		<!-- 
+			http://localhost/struct2_3_action/saveUser
+				*代表 saveUser
+				{1} 取第一个*所代表的字符串。此处saveUser
+		 -->
+		<!--  
+		<action name="*" class="com.itheima.action.Demo3Action" method="{1}">
+			<result name="success">/{1}.jsp</result>
+		</action>
+		-->
+		<!-- 
+		http://localhost/struct2_3_action/add_Student第一个*：add  第二个* Student
+		http://localhost/struct2_3_action/update_Student第一个*：update  第二个* Student
+		http://localhost/struct2_3_action/delete_Student第一个*：delete  第二个* Student	
+		 -->
+		 <!-- 
+		<action name="*_*" class="com.itheima.action.{2}Action" method="{1}">
+			<result name="success">/{1}{2}.jsp</result>
+		</action>
+		 -->
+		 <!-- 
+		 	http://localhost/struct2_3_action/demo4!save
+		 	http://localhost/struct2_3_action/demo4!update
+		  -->
+		 <action name="demo4" class="com.itheima.action.Demo4Action">
+			
+		</action>
+	</package>
+</struts>

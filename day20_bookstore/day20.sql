@@ -44,7 +44,7 @@ create table orderitems(
 	bookId int,
 	ordernum varchar(100),
 	constraint bookId_fk foreign key (bookId) references books(id),#外键约束
-	constraint ordernum_fk foreign key (ordernum) references oeders(ordernum)#外键约束
+	constraint ordernum_fk foreign key (ordernum) references orders(ordernum)#外键约束
 );
 create table ordernum(
 	prefix varchar(100) primary key,#前缀 20180201
