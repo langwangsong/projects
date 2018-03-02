@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="mydefaultpackage" extends="struts-default">
+		<interceptors>
+			<!-- 声明拦截器 -->
+			<interceptor name="logonCheckInterceptor" class="com.itheima.interceptors.LogonCheckInterceptor"></interceptor>
+			<!-- 配置自己独有的拦截器栈 -->
+			<interceptor-stack name="mydefaultstack">
+				<interceptor-ref name="defaultStack"></interceptor-ref><!-- struts2核心功能 -->
+				<interceptor-ref name="logonCheckInterceptor"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 声明默认的拦截器栈 -->
+		<default-interceptor-ref name="mydefaultstack"></default-interceptor-ref>
+	</package>
+	<package name="p1" extends="mydefaultpackage">
+		<action name="save" class="com.itheima.action.UserAction" method="save">
+			<result name="login">/login.jsp</result>
+		</action>
+		<action name="update" class="com.itheima.action.UserAction" method="update">
+			<result name="login">/login.jsp</result>
+		</action>
+		<action name="login" class="com.itheima.action.UserAction" method="login">
+			<interceptor-ref name="mydefaultstack">
+				<!-- 给栈中的某个拦截器设置参数 -->
+				<param name="logonCheckInterceptor.excludeMethods">login</param>
+			</interceptor-ref>
+			<result>/index.jsp</result>
+		</action>
+	</package>
+</struts>

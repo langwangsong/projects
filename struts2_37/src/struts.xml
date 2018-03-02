@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 通过constant元素覆盖掉之前配置文件参数的默认值 -->
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.multipart.maxSize" value="524288"></constant>
+	<constant name="struts.custom.i18n.resources" value="msg"></constant>
+	<package name="p1" extends="struts-default">
+		<action name="upload1" class="com.itheima.action.Upload1Action">
+			<interceptor-ref name="defaultStack">
+				<!-- 允许上传的文件扩展名，多个用逗号分隔 -->
+				<param name="fileUpload.allowedExtensions">.doc,.txt,.gif,.pdf</param>
+				<!-- 允许上传的文件MIME类型，多个用逗号分隔 -->
+				<!--  
+				<param name="fileUpload.allowedTypes">application/msword,text/plain</param>
+				-->
+				<!-- 设置文件大小  默认大小是2M  此参数设置无效-->
+				<!--  
+				<param name="fileUpload.maximumSize">5242880</param>
+				-->
+			</interceptor-ref>
+			<result name="input">/upload1.jsp</result>
+		</action>
+	</package>
+</struts>

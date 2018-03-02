@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="p1" extends="struts-default">
+		<interceptors>
+			<!-- 有关登录的动作 -->
+			<interceptor name="LogonCheckInterceptor" class="com.itheima.interceptors.LogonCheckInterceptor"></interceptor>
+		</interceptors>
+		<action name="save" class="com.itheima.action.UserAction" method="save">
+			<interceptor-ref name="defaultStack"></interceptor-ref><!-- struts2核心功能 -->
+			<interceptor-ref name="LogonCheckInterceptor"></interceptor-ref>
+			<result name="login">/login.jsp</result>
+		</action>
+		<action name="update" class="com.itheima.action.UserAction" method="update">
+			<interceptor-ref name="defaultStack"></interceptor-ref><!-- struts2核心功能 -->
+			<interceptor-ref name="LogonCheckInterceptor"></interceptor-ref>
+			<result name="login">/login.jsp</result>
+		</action>
+		<action name="login" class="com.itheima.action.UserAction" method="login">
+			<result>/index.jsp</result>
+		</action>
+	</package>
+</struts>

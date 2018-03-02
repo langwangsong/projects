@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 通过constant元素覆盖掉之前配置文件参数的默认值 -->
+	<constant name="struts.devMode" value="true" />
+	<package name="pa" extends="struts-default">
+		<action name="download1" class="com.itheima.action.Download1Action">
+			<result name="success" type="stream">
+				<!-- 设置输入流的来源 -->
+				<param name="inputName">inputStream</param>
+				<!-- 相当于响应消息头：Content-Disposition:attachment;filename=0.jpg -->
+				<param name="contentDisposition">attachment;filename=${name}</param>
+				 <!-- 保证能够使用下载的方式：contentType的响应消息头 -->
+				 <param name="contentType">application/octet-stream</param>
+				 <!-- 下载缓存： struts2框架默认就是1024-->
+				 <param name="bufferSize">1024</param>
+				 <!-- 下载的文件大小:${fileLength} OGNL表达式，相当于调用当前动作的getFileLength()-->
+				<param name="contentLength">${fileLength}</param>
+			</result>
+		</action>
+	</package>
+</struts>

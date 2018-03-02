@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 通过constant元素覆盖掉之前配置文件参数的默认值 -->
+	<constant name="struts.devMode" value="true" />
+	<package name="pa" extends="struts-default">
+		<action name="upload1" class="com.itheima.action.Upload1Action">
+			
+		</action>
+	</package>
+</struts>
