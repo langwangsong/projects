@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="user" namespace="/user" extends="struts-default">
+		<action name="login" class="com.itheima.action.UserAction" method="login">
+			<!-- 成功 -->
+			<result>/login/home.jsp</result>
+			<!-- 失败：错误信息提示 -->
+			<result name="login">/login/login.jsp</result>
+		</action>
+		<action name="list" class="com.itheima.action.UserAction" method="list">
+			<!-- 展现查询结果 -->
+			<result>/user/list.jsp</result>
+		</action>
+		<action name="findByCondition" class="com.itheima.action.UserAction" method="findByCondition">
+			<!-- 展现查询结果 -->
+			<result>/user/list.jsp</result>
+		</action>
+		<action name="addUser" class="com.itheima.action.UserAction" method="addUser">
+			<!-- 拦截器，文件类型 -->
+			<interceptor-ref name="defaultStack">
+				<param name="fileUpload.allowedTypes">.doc,.docx</param>
+			</interceptor-ref>
+			<!-- 添加成功后，重定向到查询全部用户 -->
+			<result type="redirectAction">list</result>
+			<!-- 数据回显 -->
+			<result name="input">/user/add.jsp</result>
+			<result name="error">/msg.jsp</result>
+		</action>
+	</package>
+</struts>
