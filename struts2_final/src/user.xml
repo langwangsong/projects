@@ -4,12 +4,12 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<package name="user" namespace="/user" extends="struts-default">
+	<package name="user" namespace="/user" extends="mydefault">
 		<action name="login" class="com.itheima.action.UserAction" method="login">
 			<!-- 成功 -->
 			<result>/login/home.jsp</result>
 			<!-- 失败：错误信息提示 -->
-			<result name="login">/login/login.jsp</result>
+			<!-- <result name="login">/login/login.jsp</result> -->
 		</action>
 		<action name="list" class="com.itheima.action.UserAction" method="list">
 			<!-- 展现查询结果 -->
@@ -22,13 +22,37 @@
 		<action name="addUser" class="com.itheima.action.UserAction" method="addUser">
 			<!-- 拦截器，文件类型 -->
 			<interceptor-ref name="defaultStack">
-				<param name="fileUpload.allowedTypes">.doc,.docx</param>
+				<param name="fileUpload.allowedExtensions">.doc,.docx</param>
 			</interceptor-ref>
 			<!-- 添加成功后，重定向到查询全部用户 -->
 			<result type="redirectAction">list</result>
 			<!-- 数据回显 -->
 			<result name="input">/user/add.jsp</result>
 			<result name="error">/msg.jsp</result>
+		</action>
+		<action name="editUI" class="com.itheima.action.UserAction" method="editUI">
+			<result>/user/edit.jsp</result>
+		</action>
+		<action name="editUser" class="com.itheima.action.UserAction" method="editUser">
+			<!-- 拦截器，文件类型 -->
+			<interceptor-ref name="defaultStack">
+				<param name="fileUpload.allowedExtensions">.doc,.docx</param>
+			</interceptor-ref>
+			<!-- 修改成功后，重定向到查询全部用户 -->
+			<result type="redirectAction">list</result>
+			<!-- 数据回显 -->
+			<result name="input">/user/edit.jsp</result>
+			<result name="error">/msg.jsp</result>
+		</action>
+		<action name="show" class="com.itheima.action.UserAction" method="show">
+			<result>/user/view.jsp</result>
+		</action>
+		<action name="download" class="com.itheima.action.UserAction" method="download">
+			<result type="stream">
+				<param name="inputName">downStream</param>
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename=${downloadfilename}</param>
+			</result>
 		</action>
 	</package>
 </struts>

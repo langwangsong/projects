@@ -1,7 +1,10 @@
 package com.itheima.action;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,13 +17,81 @@ import org.apache.struts2.ServletActionContext;
 import com.itheima.domain.User;
 import com.itheima.service.BusinessService;
 import com.itheima.service.impl.BusinessServiceImpl;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.util.ValueStack;
 
 public class UserAction extends ActionSupport implements ModelDriven<User> {
 	private BusinessService s = new BusinessServiceImpl();
 	private User user = new User();
 	private List<User> users;
+	
+	private String downloadfilename;//下载要用到的文件名
+	public String getDownloadfilename() {
+		return downloadfilename;
+	}
+	public void setDownloadfilename(String downloadfilename) {
+		this.downloadfilename = downloadfilename;
+	}
+	private InputStream downStream;
+	public InputStream getDownStream() {
+		return downStream;
+	}
+	public void setDownStream(InputStream downStream) {
+		this.downStream = downStream;
+	}
+	public String download() throws Exception{
+		User dbUser = s.findUserById(user.getUserID());
+		String rootDir = ServletActionContext.getServletContext().getRealPath("/WEB_INF/files");
+		String childDir = dbUser.getPath();
+		downloadfilename = dbUser.getFilename().substring(dbUser.getFilename().indexOf("_")+1);
+		downloadfilename = URLEncoder.encode(downloadfilename,"UTF-8");//中文文件名URL编码
+		String path = rootDir+File.separator+childDir+File.separator+dbUser.getFilename();
+		downStream = new FileInputStream(path);
+		return SUCCESS;
+	}
+	//查看用户
+	public String show(){
+		s.findUserById(user.getUserID());
+		User dbUser = s.findUserById(user.getUserID());
+		ValueStack vs = ActionContext.getContext().getValueStack();
+		vs.push(dbUser);//压入root栈顶
+		return SUCCESS;
+	}
+	//保存修改信息
+	public String editUser(){
+		try {
+			if(upload == null){
+				//说明用户没有重新上传简历
+				User dbUser = s.findUserById(user.getUserID());
+				user.setPath(user.getPath());
+				user.setFilename(user.getFilename());//保持住原来的文件路径和文件名
+			}else{
+				//user中设置path和filename
+				String filename = UUID.randomUUID().toString()+"_"+uploadFileName;
+				user.setFilename(filename);
+				//创建一个保存文件的路径
+				String rootDir = ServletActionContext.getServletContext().getRealPath("/WEB-INF/files");
+				String childDir = makeDir(rootDir,filename);//用hashCode算法打散存储目录4/15
+				user.setPath(childDir);
+				//文件上传
+				FileUtils.moveFile(upload, new File(rootDir+File.separator+childDir,filename));
+			}
+			s.updateUser(user);
+			return SUCCESS;		
+		} catch (IOException e) {
+			e.printStackTrace();
+			return ERROR;
+		}
+	}
+	
+	public String editUI(){
+		User dbUser = s.findUserById(user.getUserID());
+		ValueStack vs = ActionContext.getContext().getValueStack();
+		vs.push(dbUser);//压入root栈顶
+		return SUCCESS;
+	}
 	private File upload;
 	private String uploadFileName;//上传的文件名
 	
@@ -44,22 +115,22 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	}
 	//添加新用户
 	public String addUser(){
-		//user中设置path和filename
-		String filename = UUID.randomUUID().toString()+"_"+uploadFileName;
-		user.setFilename(filename);
-		//创建一个保存文件的路径
-		String rootDir = ServletActionContext.getServletContext().getRealPath("/WEB-INF/files");
-		String childDir = makeDir(rootDir,filename);//用hashCode算法打散存储目录4/15
-		user.setPath(childDir);
-		//文件上传
 		try {
+			//user中设置path和filename
+			String filename = UUID.randomUUID().toString()+"_"+uploadFileName;
+			user.setFilename(filename);
+			//创建一个保存文件的路径
+			String rootDir = ServletActionContext.getServletContext().getRealPath("/WEB-INF/files");
+			String childDir = makeDir(rootDir,filename);//用hashCode算法打散存储目录4/15
+			user.setPath(childDir);
+			//文件上传
 			FileUtils.moveFile(upload, new File(rootDir+File.separator+childDir,filename));
+			s.addUser(user);
+			return SUCCESS;		
 		} catch (IOException e) {
 			e.printStackTrace();
 			return ERROR;
 		}
-		s.addUser(user);
-		return SUCCESS;
 	}
 	//计算存储子目录
 	public String makeDir(String rootDir,String filename){

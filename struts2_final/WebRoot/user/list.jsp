@@ -144,14 +144,16 @@
 												${education }
 											</td>
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${pageContext.request.contextPath}/user/edit.jsp?userID=15">
+												<s:a namespace="/user" action="editUI">
+													<s:param name="userID" value="userID"></s:param>
 													<img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
-												</a>
+												</s:a>
 											</td>
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${pageContext.request.contextPath}/user/view.jsp?userID=15">
-													<img src="${pageContext.request.contextPath}/images/button_view.gif" border="0" style="CURSOR: hand">
-												</a>
+												<s:a namespace="/user" action="show">
+													<s:param name="userID" value="userID"></s:param>
+													<img src="${pageContext.request.contextPath}/images/button_view.gif" border="0" style="CURSOR: hand">										
+												</s:a>
 											</td>
 											<td align="center" style="HEIGHT: 22px">
 												<a href="${pageContext.request.contextPath}/user/list.jsp?userID=15">

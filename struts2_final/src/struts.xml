@@ -7,5 +7,20 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.ui.theme" value="simple"></constant>
 	<constant name="struts.multipart.maxSize" value="10485760"></constant>
+	<package name="mydefault" extends="struts-default">
+		<interceptors>
+			<interceptor name="checkLogin" class="com.itheima.interceprors.CheckLoginInterceptor"></interceptor>
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="checkLogin">
+					<param name="excludeMethods">login</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="mydefault"></default-interceptor-ref>
+		<global-results>
+			<result name="login">/login/login.jsp</result>
+		</global-results>
+	</package>
 	<include file="user.xml"></include>
 </struts>
