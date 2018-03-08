@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
@@ -38,10 +39,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	//下载文件
 	public String download() throws Exception{
 		User dbUser = s.findUserById(user.getUserID());
-		String rootDir = ServletActionContext.getServletContext().getRealPath("/WEB_INF/files");
+		String rootDir = ServletActionContext.getServletContext().getRealPath("/WEB-INF/files");
 		String childDir = dbUser.getPath();
 		downloadfilename = dbUser.getFilename().substring(dbUser.getFilename().indexOf("_")+1);
-		downloadfilename = URLEncoder.encode(downloadfilename,"UTF-8");//中文文件名URL编码
+		//downloadfilename = URLEncoder.encode(downloadfilename,"UTF-8");//中文文件名URL编码
 		String path = rootDir+File.separator+childDir+File.separator+dbUser.getFilename();
 		downStream = new FileInputStream(path);
 		return SUCCESS;
@@ -146,10 +147,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	public String getDownloadfilename() {
 		return downloadfilename;
 	}
-	public void setDownloadfilename(String downloadfilename) {
+	public void setDownloadfilename(String downloadfilename) throws UnsupportedEncodingException {
 		this.downloadfilename = downloadfilename;
 	}
-	public InputStream getDownStream() {
+	public InputStream getDownStream() throws UnsupportedEncodingException {
 		return downStream;
 	}
 	public void setDownStream(InputStream downStream) {

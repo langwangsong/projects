@@ -30,7 +30,7 @@ public class Download1Action extends ActionSupport {
 		//设置文件名
 		name = FilenameUtils.getName(realPath);//要进行URL编码,避免中文编码，火狐浏览器除外
 		//在动作中进行编码
-		name = URLEncoder.encode(name,"UTF-8");
+		//name = URLEncoder.encode(name,"UTF-8");
 		return SUCCESS;
 	}
 
