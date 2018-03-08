@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 数据库连接信息的配置 -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql:///hiberday1</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		<!-- 方言   如果使用标准的sql可以不配方言-->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- 其他属性配置 -->
+		<property name="show_sql">true</property><!-- 显示SQL语句 -->
+		<property name="format_sql">true</property><!-- 格式化SQL语句 -->
+		<property name="javax.persistence.validation.mode">none</property>
+		<!-- 加入映射文件的配置 -->
+		<mapping resource="cn/itcast/domain/User.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>
