@@ -26,21 +26,16 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	private BusinessService s = new BusinessServiceImpl();
 	private User user = new User();
 	private List<User> users;
-	
 	private String downloadfilename;//下载要用到的文件名
-	public String getDownloadfilename() {
-		return downloadfilename;
-	}
-	public void setDownloadfilename(String downloadfilename) {
-		this.downloadfilename = downloadfilename;
-	}
 	private InputStream downStream;
-	public InputStream getDownStream() {
-		return downStream;
+	private File upload;
+	private String uploadFileName;//上传的文件名
+	//删除用户
+	public String delete(){
+		s.deleteUser(user.getUserID());
+		return SUCCESS;
 	}
-	public void setDownStream(InputStream downStream) {
-		this.downStream = downStream;
-	}
+	//下载文件
 	public String download() throws Exception{
 		User dbUser = s.findUserById(user.getUserID());
 		String rootDir = ServletActionContext.getServletContext().getRealPath("/WEB_INF/files");
@@ -53,7 +48,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	}
 	//查看用户
 	public String show(){
-		s.findUserById(user.getUserID());
 		User dbUser = s.findUserById(user.getUserID());
 		ValueStack vs = ActionContext.getContext().getValueStack();
 		vs.push(dbUser);//压入root栈顶
@@ -85,33 +79,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			return ERROR;
 		}
 	}
-	
 	public String editUI(){
 		User dbUser = s.findUserById(user.getUserID());
 		ValueStack vs = ActionContext.getContext().getValueStack();
 		vs.push(dbUser);//压入root栈顶
 		return SUCCESS;
-	}
-	private File upload;
-	private String uploadFileName;//上传的文件名
-	
-	public File getUpload() {
-		return upload;
-	}
-	public void setUpload(File upload) {
-		this.upload = upload;
-	}
-	public String getUploadFileName() {
-		return uploadFileName;
-	}
-	public void setUploadFileName(String uploadFileName) {
-		this.uploadFileName = uploadFileName;
-	}
-	public List<User> getUsers() {
-		return users;
-	}
-	public void setUsers(List<User> users) {
-		this.users = users;
 	}
 	//添加新用户
 	public String addUser(){
@@ -136,7 +108,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	public String makeDir(String rootDir,String filename){
 		int hashCode = filename.hashCode();
 		int dir1 = hashCode&0xf;
-		int dir2 = (hashCode&0xf)>>4;
+		int dir2 = (hashCode&0xf0)>>4;
 		String dir = dir1+File.separator+dir2;
 		File f = new File(rootDir,dir);
 		if(!f.exists())
@@ -171,5 +143,34 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	public User getModel() {
 		return user;
 	}
-
+	public String getDownloadfilename() {
+		return downloadfilename;
+	}
+	public void setDownloadfilename(String downloadfilename) {
+		this.downloadfilename = downloadfilename;
+	}
+	public InputStream getDownStream() {
+		return downStream;
+	}
+	public void setDownStream(InputStream downStream) {
+		this.downStream = downStream;
+	}
+	public File getUpload() {
+		return upload;
+	}
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+	public String getUploadFileName() {
+		return uploadFileName;
+	}
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 }

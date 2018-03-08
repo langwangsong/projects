@@ -156,9 +156,10 @@
 												</s:a>
 											</td>
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${pageContext.request.contextPath}/user/list.jsp?userID=15">
+												<s:a  namespace="/user" action="delete">
+													<s:param name="userID" value="userID"></s:param>
 													<img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
-												</a>
+												</s:a>
 											</td>
 										</tr>
 										</s:iterator>

@@ -54,5 +54,8 @@
 				<param name="contentDisposition">attachment;filename=${downloadfilename}</param>
 			</result>
 		</action>
+		<action name="delete" class="com.itheima.action.UserAction" method="delete">
+			<result type="redirectAction">list</result>
+		</action>
 	</package>
 </struts>
