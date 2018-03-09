@@ -42,7 +42,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 		String rootDir = ServletActionContext.getServletContext().getRealPath("/WEB-INF/files");
 		String childDir = dbUser.getPath();
 		downloadfilename = dbUser.getFilename().substring(dbUser.getFilename().indexOf("_")+1);
-		//downloadfilename = URLEncoder.encode(downloadfilename,"UTF-8");//中文文件名URL编码
+		downloadfilename = URLEncoder.encode(downloadfilename,"UTF-8");//中文文件名URL编码
 		String path = rootDir+File.separator+childDir+File.separator+dbUser.getFilename();
 		downStream = new FileInputStream(path);
 		return SUCCESS;
@@ -60,8 +60,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			if(upload == null){
 				//说明用户没有重新上传简历
 				User dbUser = s.findUserById(user.getUserID());
-				user.setPath(user.getPath());
-				user.setFilename(user.getFilename());//保持住原来的文件路径和文件名
+				user.setPath(dbUser.getPath());
+				user.setFilename(dbUser.getFilename());//保持住原来的文件路径和文件名
 			}else{
 				//user中设置path和filename
 				String filename = UUID.randomUUID().toString()+"_"+uploadFileName;

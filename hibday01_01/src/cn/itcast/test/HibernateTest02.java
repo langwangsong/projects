@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import cn.itcast.domain.User;
 
-public class HibernateTest01 {
+public class HibernateTest02 {
 	@Test
 	public void testAdd(){
 		/**
@@ -22,6 +22,9 @@ public class HibernateTest01 {
 		 */
 		//1、加载hibernate配置文件及映射文件
 		Configuration cfg = new Configuration().configure();
+		//cfg.addResource("cn/itcast/domain/User.hbm.xml");//用代码加载映射文件
+		cfg.addClass(User.class);
+		
 		//2、得到SessionFactory对象（好比数据库连接池）
 		SessionFactory sf = cfg.buildSessionFactory();
 		//3、得到session对象（好比数据库连接Connection）
