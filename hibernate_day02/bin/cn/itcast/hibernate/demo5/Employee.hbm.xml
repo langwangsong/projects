@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.itcast.hibernate.demo5.Employee" table="employee">
+		<id name="eid" column="eid">
+			<generator class="native"></generator>
+		</id>
+		<property name="ename" column="ename"></property>
+		<property name="age" column="age"></property>
+		<!-- 配置员工所属的部门： -->
+		<!-- many-to-one
+			*name：	类中的部门对象的属性名称
+			*class:	部门对象的类的全路径
+			*column:	表中的外键的名称
+		 -->
+		<many-to-one name="department" cascade="save-update,delete" class="cn.itcast.hibernate.demo5.Department" column="dno"></many-to-one>
+	</class>
+</hibernate-mapping>

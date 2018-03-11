@@ -23,4 +23,13 @@
 		<property name="username" column="USERNAME"></property>
 		<property name="password" column="PASSWORD"></property>
 	</class>
+	<sql-query name="queryBySQL">
+		select * from User;
+		<!-- 指明了列名与类的属性的关联 -->
+		<return class="cn.itcast.domain.User"></return>
+	</sql-query>
+	<!-- HQL语句的命名 -->
+	<query name="queryByHQL">
+		from User
+	</query>
 </hibernate-mapping>

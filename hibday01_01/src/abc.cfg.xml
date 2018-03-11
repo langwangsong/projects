@@ -15,19 +15,6 @@
 		<property name="show_sql">true</property><!-- 显示SQL语句 -->
 		<property name="format_sql">true</property><!-- 格式化SQL语句 -->
 		<property name="javax.persistence.validation.mode">none</property>
-		<!-- 与线程绑定 -->
-		<property name="current_session_context_class">thread</property>
-		<!-- 使用C3P0连接池 -->
-		<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
-		<property name="c3p0.min_size">5</property>
-		<property name="c3p0.max_size">20</property>
-		<property name="c3p0.timeout">120</property>
-		<property name="c3p0.idle_test_period">3000</property>
-		<!-- 事务设置为自动提交 -->
-		<property name="connection.autocommit">true</property>
-		<!-- 自动生成表结构 -->
-		<property name="hbm2ddl.auto">update</property><!-- 自动建表，如果存在，先清除，再建立 -->
-		
 		<!-- 加入映射文件的配置 -->
 		<mapping resource="cn/itcast/domain/User.hbm.xml"/>
 	</session-factory>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.itcast.hibernate.demo5.Department" table="department">
+		<id name="did" column="did">
+			<generator class="native"></generator>
+		</id>
+		<property name="dname" column="dname"></property>
+		
+		<!-- 配置部门中所属的员工的集合 -->
+		<!-- set标签的name属性：勒种的集合的属性的名称-->
+		<set name="employees" cascade="save-update,delete" inverse="true">
+			<!-- key的标签column属性：表中的外键的名称 -->
+			<key column="dno"></key>
+			<!-- 配置one-to-many -->
+			<one-to-many class="cn.itcast.hibernate.demo5.Employee"/>
+		</set>
+	</class>
+</hibernate-mapping>
