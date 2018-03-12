@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.itcast.hibernate.demo1.Student" table="student">
+		<id name="sid" column="sid">
+			<generator class="native"></generator>
+		</id>
+		<property name="sname" column="sname"></property>
+		<!-- 课程集合 -->
+		<!-- 
+			set标签上：
+			name:课程集合的属性名称
+			table:中间表的名称
+		 -->
+		<set name="courses" table="stu_cour">
+			<!-- key标签：column属性指代中间表学生端在中间表的外键的名称-->
+			<key column="snum" />
+			<!-- many-to-many标签：class属性指代的是课程全路径，column：课程在中间表的外键的名称 -->
+			<many-to-many class="cn.itcast.hibernate.demo1.Course" column="cnum"/>
+		</set>
+	</class>
+
+</hibernate-mapping>

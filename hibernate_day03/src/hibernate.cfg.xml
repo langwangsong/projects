@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+	<property name="connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="connection.url">
+		jdbc:mysql:///hibernateday03
+	</property>
+	<property name="connection.username">root</property>
+	<property name="connection.password">root</property>
+	<!-- 方言   如果使用标准的sql可以不配方言-->
+	<property name="dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+	<!-- 其他属性配置 -->
+	<property name="show_sql">true</property><!-- 显示SQL语句 -->
+	<property name="format_sql">true</property><!-- 格式化SQL语句 -->
+	<!-- <property name="javax.persistence.validation.mode">none</property> -->
+	<!-- 自动生成表结构 -->
+	<property name="hbm2ddl.auto">update</property><!-- 自动建表，如果存在，先清除，再建立 -->
+	<!-- 事务设置为自动提交 -->
+	<property name="connection.autocommit">false</property>
+	<!-- 加入映射文件的配置 -->
+	<!-- <mapping resource="cn/itcast/hibernate/demo1/Customer.hbm.xml" /> -->
+	<!-- <mapping resource="cn/itcast/hibernate/demo5/Department.hbm.xml" />
+		<mapping resource="cn/itcast/hibernate/demo5/Employee.hbm.xml" /> -->
+	<!-- <mapping resource="cn/itcast/hibernate/demo1/Course.hbm.xml" />
+		<mapping resource="cn/itcast/hibernate/demo1/Student.hbm.xml" />
+	-->
+	<mapping resource="cn/itcast/hibernate/domain/Customer.hbm.xml" />
+	<mapping resource="cn/itcast/hibernate/domain/Order.hbm.xml" />
+
+</session-factory>
+</hibernate-configuration>
