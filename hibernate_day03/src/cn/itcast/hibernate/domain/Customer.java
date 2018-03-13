@@ -41,5 +41,13 @@ public class Customer {
 	public String toString() {
 		return "Customer [cid=" + cid + ", cname=" + cname + ", cage=" + cage + "]";
 	}
+	public Customer() {
+		super();
+	}
+	public Customer(String cname, Integer cage) {
+		super();
+		this.cname = cname;
+		this.cage = cage;
+	}
 	
 }	

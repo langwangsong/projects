@@ -3,15 +3,18 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="cn.itcast.hibernate.domain.Customer" table="customers">
+	<class name="cn.itcast.hibernate.domain.Customer" table="customers" batch-size="3">
 		<id name="cid" column="cid">
 			<generator class="native"></generator>
 		</id>
 		<property name="cname" column="cname"></property>
 		<property name="cage" column="cage"></property>
-		<set name="orders" >
-			<key column="cnum" />
+		<set name="orders">
+			<key column="cnum"/>
 			<one-to-many class="cn.itcast.hibernate.domain.Order"/>
 		</set>
 	</class>
+	<query name="findAll">
+		from Customer
+	</query>
 </hibernate-mapping>

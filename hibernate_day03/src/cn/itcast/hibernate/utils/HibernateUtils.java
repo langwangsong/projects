@@ -21,4 +21,7 @@ public class HibernateUtils {
 	public static Session getCurrentSession(){
 		return sf.getCurrentSession();
 	}
+	public static void main(String[] args) {
+		HibernateUtils u = new HibernateUtils();
+	}
 }
