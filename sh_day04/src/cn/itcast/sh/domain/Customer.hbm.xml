@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="cn.itcast.sh.domain.Customer" table="customer">
+  <id column="cid" name="cid">
+   <generator class="native"/>
+  </id>
+  <property column="cname" name="cname"/>
+  <property column="age" name="age"/>
+  <set name="orders">
+  	<key column="cnum"/>
+  	<one-to-many class="cn.itcast.sh.domain.Order" />
+  </set>
+ </class>
+</hibernate-mapping>
