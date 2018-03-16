@@ -30,4 +30,37 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		ActionContext.getContext().getValueStack().set("list", list);
 		return "findAll";
 	}
+	/**
+	 * 保存客户的执行方法save
+	 */
+	public String save(){
+		CustomerService cs = new CustomerService();
+		cs.save(customer);
+		return "saveSuccess";
+	}
+	/**
+	 * 编辑客户的执行方法edit
+	 */
+	public String edit(){
+		CustomerService cs = new CustomerService();
+		customer = cs.findById(customer.getCid());
+		return "editSuccess";
+	}
+	/**
+	 * 修改用户的执行方法：update
+	 */
+	public String update(){
+		CustomerService cs = new CustomerService();
+		cs.update(customer);
+		return "updateSuccess";
+	}
+	/**
+	 * 删除客户的执行方法delete
+	 */
+	public String delete(){
+		CustomerService cs = new CustomerService();
+		customer = cs.findById(customer.getCid());
+		cs.delete(customer);
+		return "deleteSuccess";
+	}
 }

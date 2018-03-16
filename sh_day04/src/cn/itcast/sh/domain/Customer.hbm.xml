@@ -8,7 +8,7 @@
   </id>
   <property column="cname" name="cname"/>
   <property column="age" name="age"/>
-  <set name="orders">
+  <set name="orders" cascade="delete">
   	<key column="cnum"/>
   	<one-to-many class="cn.itcast.sh.domain.Order" />
   </set>

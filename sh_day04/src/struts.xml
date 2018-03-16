@@ -8,6 +8,13 @@
 	<package name="sh_day04" extends="struts-default" namespace="/">
 		<action name="customer_*" class="cn.itcast.sh.action.CustomerAction" method="{1}">
 			<result name="findAll">/jsp/customer/list.jsp</result>
+			<result name="saveSuccess" type="redirectAction">customer_findAll</result>
+			<result name="editSuccess">/jsp/customer/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">customer_findAll</result>
+			<result name="deleteSuccess" type="redirectAction">customer_findAll</result>
+		</action>
+		<action name="order_*" class="cn.itcast.sh.action.OrderAction" method="{1}">
+			
 		</action>
 	</package>
 
