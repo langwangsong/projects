@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Spring的入门案例============ -->
+	<!-- <bean id="userService" class="cn.itcast.spring.demo1.UserServiceImpl">
+		<property name="name" value="王汝华"></property>
+	</bean> -->
+	<!-- Spring的Bean的管理 -->
+	<!-- Spring的Bean的实例化的三种方式：=========== -->
+	<!-- <bean id="bean1" class="cn.itcast.spring.demo2.Bean1" />
+	
+	<bean id="bean2" class="cn.itcast.spring.demo2.Bean2Factory" factory-method="getBean2" />
+	
+	<bean id="bean3Factory" class="cn.itcast.spring.demo2.Bean3Factory" />
+	
+	<bean id="bean3" factory-bean="bean3Factory" factory-method="getBean3" />
+	 --><!-- Spring的Bean的作用范围 -->
+	<!-- <bean id="customerService" class="cn.itcast.spring.demo3.CustomerService" init-method="setup" destroy-method="teardown"/>
+	 --><!-- Spring的类的完整生命周期 -->
+	<!-- <bean id="orderService" class="cn.itcast.spring.demo4.OrderServiceImpl" init-method="setup" destroy-method="teardown">
+		<property name="name" value="老王"></property>
+	</bean>
+	<bean class="cn.itcast.spring.demo4.MyBeanPostProcessor" /> -->
+	<!-- spring的属性的注入 -->
+	<bean id="car" class="cn.itcast.spring.demo5.Car">
+		<!-- <constructor-arg name="name" value="保时捷" />
+		<constructor-arg name="price" value="1000000" /> -->
+		<constructor-arg index="0" value="奔驰"/>
+		<constructor-arg index="1" value="2000000" />
+	</bean>
+	<!-- <bean id="car2" class="cn.itcast.spring.demo5.Car2">
+		<property name="name" value="宝马" />
+		<property name="price" value="3000000" />
+	</bean> -->
+	<bean id="car2" class="cn.itcast.spring.demo5.Car2" p:name="宝马" p:price="300000"/>
+	<!-- <bean id="employee" class="cn.itcast.spring.demo5.Employee">
+		<property name="name" value="老王" />
+		<property name="car" ref="car" />
+	</bean> -->
+	<bean id="employee" class="cn.itcast.spring.demo5.Employee" p:name="老王" p:car-ref="car" />
+</beans>
