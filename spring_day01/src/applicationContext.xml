@@ -35,10 +35,20 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 		<property name="name" value="宝马" />
 		<property name="price" value="3000000" />
 	</bean> -->
-	<bean id="car2" class="cn.itcast.spring.demo5.Car2" p:name="宝马" p:price="300000"/>
+	<!-- <bean id="car2" class="cn.itcast.spring.demo5.Car2" p:name="宝马" p:price="300000"/> -->
+	<bean id="carInfo" class="cn.itcast.spring.demo5.CarInfo"></bean>
+	<bean id="car2" class="cn.itcast.spring.demo5.Car2">
+		<property name="name" value="#{carInfo.name}" />
+		<property name="price" value="#{carInfo.calculatePrice()}"/>
+	</bean>
 	<!-- <bean id="employee" class="cn.itcast.spring.demo5.Employee">
 		<property name="name" value="老王" />
 		<property name="car" ref="car" />
 	</bean> -->
-	<bean id="employee" class="cn.itcast.spring.demo5.Employee" p:name="老王" p:car-ref="car" />
+	<!-- <bean id="employee" class="cn.itcast.spring.demo5.Employee" p:name="老王" p:car-ref="car" /> -->
+	<bean id="employee" class="cn.itcast.spring.demo5.Employee">
+		<property name="name" value="#{'老王'}" />
+		<property name="car" value="#{car}"></property>
+	</bean>
+	<import resource="applicationContext2.xml"/>
 </beans>

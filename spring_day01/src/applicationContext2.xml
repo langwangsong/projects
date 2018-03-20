@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Spring的注入数组，List，Set，Map，Properties的属性 -->
+	<bean id="collectionBean" class="cn.itcast.spring.demo6.CollectionBean">
+		<property name="arrs">
+			<list>
+				<value>老王</value>
+				<value>任童</value>
+				<value>小凤</value>
+			</list>
+		</property>
+		<property name="list">
+			<list>
+				<value>李琦1</value>
+				<value>李琦2</value>
+				<value>李琦3</value>
+			</list>
+		</property>
+		<property name="set">
+			<set>
+				<value>王丽1</value>
+				<value>王丽2</value>
+				<value>王丽3</value>
+			</set>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="老王1" value="111"></entry>
+				<entry key="老王2" value="222"></entry>
+				<entry key="老王3" value="333"></entry>
+			</map>
+		</property>
+		<property name="properties">
+			<props>
+				<prop key="user">root</prop>
+				<prop key="password">123</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
