@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Spring不带有切入点的切面===================== -->
+    <!-- 目标类：被增强的类 -->
+	<bean id="customerDao" class="cn.itcast.spring.demo3.CustomerImpl" />
+	<bean id="myBeforeAdvice" class="cn.itcast.spring.demo3.MyBeforeAdvice" />
+	
+	<!-- 配置生成代理： -->
+	<bean id="customerDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<!-- 配置目标 -->
+		<property name="target" ref="customerDao" />
+		<!-- 配置目标的实现接口 -->
+		<property name="proxyInterfaces" value="cn.itcast.spring.demo3.CustomerDao"/>
+		<!-- 拦截的名称：切面 -->
+		<property name="interceptorNames" value="myBeforeAdvice"/>
+	</bean>
+	<!-- Spring带有切入点的切面===================== -->
+	<!-- 配置目标 -->
+	<bean id="productDao" class="cn.itcast.spring.demo4.ProductDao" />
+	<!-- 配置环绕通知 -->
+	<bean id="myAroundAdvice" class="cn.itcast.spring.demo4.MyAroundAdvice" />
+	<!-- 配置切面 -->
+	<bean id="advisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<!-- 正则表达式：.代表所有字符，*代表任意次 -->
+		<!-- <property name="pattern" value=".*" /> -->
+		<!-- 拦截ProductDao中的update方法 -->
+		<!-- <property name="pattern" value="cn\.itcast\.spring\.demo4\.ProductDao\.update" /> -->
+		<!-- 拦截ProductDao的update和add方法 -->
+		<property name="patterns" value=".*add.*,.*update.*" ></property>
+		<property name="advice" ref="myAroundAdvice"></property>
+	</bean>
+	<!-- 配置生成代理 -->
+	<bean id="productDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="productDao" />
+		<property name="proxyTargetClass" value="true"/>
+		<property name="interceptorNames" value="advisor" />
+	</bean>
+</beans>
