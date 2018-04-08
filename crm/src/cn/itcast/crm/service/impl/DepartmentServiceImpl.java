@@ -49,5 +49,32 @@ public class DepartmentServiceImpl implements DepartmentService {
 	public void save(Department department) {
 		departmentDao.save(department);
 	}
-	
+	/**
+	 * 业务层根据ID查询部门的方法
+	 */
+	@Override
+	public Department findById(Integer did) {
+		return departmentDao.findById(did);
+	}
+	/**
+	 * 业务层修改部门的方法
+	 */
+	@Override
+	public void update(Department department) {
+		departmentDao.update(department);
+	}
+	/**
+	 * 业务层删除部门的方法
+	 */
+	@Override
+	public void delete(Department department) {
+		departmentDao.delete(department);
+	}
+	/**
+	 * 业务层中查询所有部门的方法
+	 */
+	@Override
+	public List<Department> findAll() {
+		return departmentDao.findAll();
+	}
 }

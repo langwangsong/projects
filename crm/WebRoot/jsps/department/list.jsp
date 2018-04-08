@@ -40,6 +40,7 @@
   <tr class="henglan" style="font-weight:bold;">
     <td width="6%" align="center">部门名称</td>
     <td width="7%" align="center">编辑</td>
+    <td width="7%" align="center">删除</td>
   </tr>
   <s:iterator value="list" var="d" status="status">
   <s:if test="#status.count % 2 == 0">
@@ -49,7 +50,8 @@
 	  <tr class="tabtd1">
   </s:if>
 	    <td align="center"><s:property value="#d.dname" /> </td>
-	  	<td width="7%" align="center"><a href="addDept.html"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img"></a></td>
+	  	<td width="7%" align="center"><a href="${pageContext.request.contextPath}/department_edit.action?did=<s:property value="#d.did" />"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img"></a></td>
+		<td width="7%" align="center"><a href="${pageContext.request.contextPath}/department_delete.action?did=<s:property value="#d.did" />"><img src="${pageContext.request.contextPath}/images/button/delete.gif" class="img"></a></td>	  
 	  </tr>
   </s:iterator>
 </table>

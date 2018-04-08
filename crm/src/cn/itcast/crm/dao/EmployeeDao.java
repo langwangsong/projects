@@ -1,5 +1,7 @@
 package cn.itcast.crm.dao;
 
+import java.util.List;
+
 import cn.itcast.crm.domain.Employee;
 
 /**
@@ -12,5 +14,9 @@ public interface EmployeeDao {
 	void save(Employee employee);
 
 	Employee login(Employee employee);
+
+	List<Employee> findByPage(int begin, int pageSize);
+
+	int findCount();
 
 }

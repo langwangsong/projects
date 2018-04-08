@@ -21,7 +21,7 @@
 		d.add('010302','0103','课程类别','../lesson/listLesson.html','','right');
 		d.add('0105','01','人力资源部');
 		d.add('010501','0105','部门管理','${pageContext.request.contextPath}/department_findByPage.action','','right');
-		d.add('010503','0105','员工管理','../staff/listStaff.html','','right');
+		d.add('010503','0105','员工管理','${pageContext.request.contextPath}/employee_findByPage.action','','right');
 		document.write(d);
 	</script>
 </div>
