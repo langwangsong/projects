@@ -48,12 +48,21 @@
 	<bean id="employeeAction" class="cn.itcast.crm.web.action.EmployeeAction" scope="prototype">
 		<property name="employeeService" ref="employeeService"></property>
 	</bean>
+	<bean id="departmentAction" class="cn.itcast.crm.web.action.DepartmentAction" scope="prototype">
+		<property name="departmentService" ref="departmentService"></property>
+	</bean>
 	<!-- 配置service -->
 	<bean id="employeeService" class="cn.itcast.crm.service.impl.EmployeeServiceImpl">
 		<property name="employeeDao" ref="employeeDao"></property>
 	</bean>
+	<bean id="departmentService" class="cn.itcast.crm.service.impl.DepartmentServiceImpl">
+		<property name="departmentDao" ref="departmentDao"></property>
+	</bean>
 	<!-- 配置dao -->
 	<bean id="employeeDao" class="cn.itcast.crm.dao.impl.EmployeeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="departmentDao" class="cn.itcast.crm.dao.impl.DepartmentDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- 配置事务管理器 -->
@@ -62,4 +71,12 @@
 	</bean>
 	<!-- 开启注解事务管理 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<tx:advice transaction-manager="transactionManager" id="tx">
+		<tx:attributes>
+			<tx:method name="save*" read-only="false"/>
+			<tx:method name="update*" read-only="false"/>
+			<tx:method name="delete*" read-only="false"/>
+			<tx:method name="*" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
 </beans>

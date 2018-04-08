@@ -15,5 +15,10 @@
 			<result name="loginInput">/jsps/login.jsp</result>
 			<result name="loginSuccess" type="redirect">/jsps/frame.jsp</result>
 		</action>
+		<action name="department_*" class="departmentAction" method="{1}">
+			<result name="findByPage">/jsps/department/list.jsp</result>
+			<result name="saveUI">/jsps/department/save.jsp</result>
+			<result name="saveSuccess" type="redirectAction">department_findByPage.action</result>
+		</action>
 	</package>
 </struts>
