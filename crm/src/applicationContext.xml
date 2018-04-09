@@ -12,7 +12,7 @@
 	http://www.springframework.org/schema/aop/spring-aop.xsd
 	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
-
+	<context:annotation-config/>
 	<!-- 引入外部文件属性 -->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
 	<!-- 配置C3P0连接池 -->
@@ -41,6 +41,8 @@
 			<list>
 				<value>cn/itcast/crm/domain/Departmrnt.hbm.xml</value>
 				<value>cn/itcast/crm/domain/Employee.hbm.xml</value>
+				<value>cn/itcast/crm/domain/CourseType.hbm.xml</value>
+				<value>cn/itcast/crm/domain/Classes.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -52,12 +54,18 @@
 	<bean id="departmentAction" class="cn.itcast.crm.web.action.DepartmentAction" scope="prototype">
 		<property name="departmentService" ref="departmentService"></property>
 	</bean>
+	<bean id="courseTypeAction" class="cn.itcast.crm.web.action.CourseTypeAction" scope="prototype">
+	
+	</bean>
 	<!-- 配置service -->
 	<bean id="employeeService" class="cn.itcast.crm.service.impl.EmployeeServiceImpl">
 		<property name="employeeDao" ref="employeeDao"></property>
 	</bean>
 	<bean id="departmentService" class="cn.itcast.crm.service.impl.DepartmentServiceImpl">
 		<property name="departmentDao" ref="departmentDao"></property>
+	</bean>
+	<bean id="courseTypeService" class="cn.itcast.crm.service.impl.CourseTypeServiceImpl">
+		
 	</bean>
 	<!-- 配置dao -->
 	<bean id="employeeDao" class="cn.itcast.crm.dao.impl.EmployeeDaoImpl">
@@ -66,18 +74,13 @@
 	<bean id="departmentDao" class="cn.itcast.crm.dao.impl.DepartmentDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="courseTypeDao" class="cn.itcast.crm.dao.impl.CourseTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<!-- 配置事务管理器 -->
 	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- 开启注解事务管理 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
-	<!-- <tx:advice transaction-manager="transactionManager" id="tx">
-		<tx:attributes>
-			<tx:method name="save*" read-only="false"/>
-			<tx:method name="update*" read-only="false"/>
-			<tx:method name="delete*" read-only="false"/>
-			<tx:method name="*" read-only="true"/>
-		</tx:attributes>
-	</tx:advice> -->
 </beans>

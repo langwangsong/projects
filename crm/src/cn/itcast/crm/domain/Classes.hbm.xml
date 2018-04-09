@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.itcast.crm.domain.Classes" table="crm_classes">
+		<id name="cid" column="cid">
+			<generator class="native"></generator>
+		</id>
+		<property name="cname" column="cname" length="20"/>
+		<property name="beginDate" column="beginDate"/>
+		<property name="endDate" column="endDate"/>
+		<property name="state" column="state"/>
+		<property name="num" column="num"/>
+		<many-to-one name="courseType" class="cn.itcast.crm.domain.CourseType" column="tno"></many-to-one>
+	</class>
+</hibernate-mapping>                                
