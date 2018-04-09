@@ -44,6 +44,7 @@
     <td width="12%" align="center">入职时间</td>
     <td width="15%" align="center">所属部门</td>
     <td width="10%" align="center">编辑</td>
+    <td width="10%" align="center">删除</td>
   </tr>
   <s:iterator value="list" var="e" status="i">
   	<s:if test="#i.count % 2 == 0">
@@ -58,7 +59,8 @@
 		    <td align="center"><s:date name="#e.birthday" format="yyyy-MM-dd"/></td>
 		    <td align="center"><s:date name="#e.joinDate" format="yyyy-MM-dd" /></td>
 		    <td align="center"><s:property value="#e.department.dname" /></td>
-		  	<td width="7%" align="center"><a href="editStaff.html"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img"></a></td>
+		  	<td width="7%" align="center"><a href="${pageContext.request.contextPath }/employee_edit.action?eid=<s:property value="#e.eid" />"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img"></a></td>
+	 	 	<td width="7%" align="center"><a href="${pageContext.request.contextPath }/employee_delete.action?eid=<s:property value="#e.eid" />"><img src="${pageContext.request.contextPath}/images/button/delete.gif" class="img"></a></td>
 	 	 </tr>
   </s:iterator>
 </table>

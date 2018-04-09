@@ -62,5 +62,29 @@ public class EmployeeServiceImpl implements EmployeeService {
 		pageBean.setList(list);
 		return pageBean;
 	}
+	/**
+	 * 业务层中根据id查询员工的方法
+	 */
+	@Override
+	public Employee findById(Integer eid) {
+		return employeeDao.findById(eid);
+	}
+	/**
+	 * 业务层中修改员工的方法
+	 */
+	@Override
+	public void update(Employee employee) {
+		if(employee.getPassword().length()<32){
+			employee.setPassword(MD5Utils.md5(employee.getPassword()));
+		}
+		employeeDao.update(employee);
+	}
+	/**
+	 * 业务层中删除员工的方法
+	 */
+	@Override
+	public void delete(Employee employee) {
+		employeeDao.delete(employee);
+	}
 	
 }

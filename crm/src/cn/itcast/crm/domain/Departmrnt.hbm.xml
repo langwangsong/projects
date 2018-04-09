@@ -8,7 +8,7 @@
 		</id>
 		<property name="dname" column="dname" length="20"/>
 		<property name="description" column="description" length="100"/>
-		<set name="employees">
+		<set name="employees" cascade="delete" inverse="true">
 			<key column="dno"/>
 			<one-to-many class="cn.itcast.crm.domain.Employee"/>
 		</set>

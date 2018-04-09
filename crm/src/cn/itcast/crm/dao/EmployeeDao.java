@@ -9,14 +9,6 @@ import cn.itcast.crm.domain.Employee;
  * @author Mr_lang
  *
  */
-public interface EmployeeDao {
-
-	void save(Employee employee);
-
+public interface EmployeeDao extends BaseDao<Employee> {
 	Employee login(Employee employee);
-
-	List<Employee> findByPage(int begin, int pageSize);
-
-	int findCount();
-
 }

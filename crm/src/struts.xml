@@ -17,6 +17,9 @@
 			<result name="findByPage">/jsps/employee/list.jsp</result>
 			<result name="saveUI">/jsps/employee/save.jsp</result>
 			<result name="saveSuccess" type="redirectAction">employee_findByPage.action</result>
+			<result name="editSuccess">/jsps/employee/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">employee_findByPage.action</result>
+			<result name="deleteSuccess" type="redirectAction">employee_findByPage.action</result>
 		</action>
 		<action name="department_*" class="departmentAction" method="{1}">
 			<result name="findByPage">/jsps/department/list.jsp</result>

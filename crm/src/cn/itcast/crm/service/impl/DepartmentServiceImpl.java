@@ -2,6 +2,8 @@ package cn.itcast.crm.service.impl;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import cn.itcast.crm.dao.DepartmentDao;
 import cn.itcast.crm.domain.Department;
 import cn.itcast.crm.domain.PageBean;
@@ -11,6 +13,7 @@ import cn.itcast.crm.service.DepartmentService;
  * @author Mr_lang
  *
  */
+@Transactional
 public class DepartmentServiceImpl implements DepartmentService {
 	//注入部门Dao
 	private DepartmentDao departmentDao;

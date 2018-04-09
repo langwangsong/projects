@@ -99,4 +99,31 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		employeeService.save(employee);
 		return "saveSuccess";
 	}
+	/**
+	 * 编辑员工的执行方法：edit
+	 */
+	public String edit(){
+		//根据id查询员工
+		employee = employeeService.findById(employee.getEid());
+		//查询所有部门
+		List<Department> list = departmentService.findAll();
+		ActionContext.getContext().getValueStack().set("list", list);
+		//页面跳转
+		return "editSuccess";
+	}
+	/**
+	 * 修改员工的执行方法：update
+	 */
+	public String update(){
+		employeeService.update(employee);
+		return "updateSuccess";
+	}
+	/**
+	 * 删除员工的执行方法：delete
+	 */
+	public String delete(){
+		employee = employeeService.findById(employee.getEid());
+		employeeService.delete(employee);
+		return "deleteSuccess";
+	}
 }
