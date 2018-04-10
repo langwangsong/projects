@@ -17,7 +17,7 @@
 		d.add('0102','01','学工部');
 		d.add('010201','0102','在校学生管理','../role/listRole.html','','right');
 		d.add('0103','01','教学部');
-		d.add('010301','0103','班级管理','../classesm/listClass.html','','right');
+		d.add('010301','0103','班级管理','${pageContext.request.contextPath}/classes_findByPage.action','','right');
 		d.add('010302','0103','课程类别','${pageContext.request.contextPath}/courseType_findByPage.action','','right');
 		d.add('0105','01','人力资源部');
 		d.add('010501','0105','部门管理','${pageContext.request.contextPath}/department_findByPage.action','','right');

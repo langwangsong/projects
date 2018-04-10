@@ -37,7 +37,15 @@
 			<result name="updateSuccess" type="redirectAction">courseType_findByPage.action</result>
 			<result name="deleteSuccess" type="redirectAction">courseType_findByPage.action</result>
 			<result name="serachUI">/jsps/coursetype/search.jsp</result>
-			<result name="searchSuccess">/jsps/coursetype/searchList.jsp</result>
+			<result name="searchSuccess">/jsps/coursetype/searchList2.jsp</result>
+		</action>
+		<action name="classes_*" class="classesAction" method="{1}">
+			<result name="findByPage">/jsps/classes/list.jsp</result>
+			<result name="saveUI">/jsps/classes/save.jsp</result>
+			<result name="saveSuccess" type="redirectAction">classes_findByPage</result>
+			<result name="editSuccess">/jsps/classes/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">classes_findByPage</result>
+			<result name="deleteSuccess" type="redirectAction">classes_findByPage</result>
 		</action>
 	</package>
 </struts>

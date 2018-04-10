@@ -28,4 +28,6 @@ public interface CourseTypeService {
 
 	PageBean<CourseType> searchByHQL(CourseType courseType, Integer tnumMax, Double tpriceMax, int currentPage);
 
+	List<CourseType> findAll();
+
 }

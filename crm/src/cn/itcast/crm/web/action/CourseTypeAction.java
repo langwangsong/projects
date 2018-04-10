@@ -133,6 +133,7 @@ public class CourseTypeAction extends ActionSupport implements ModelDriven<Cours
 	public String search(){
 		//调用业务层
 		PageBean<CourseType> pageBean = courseTypeService.searchByHQL(courseType,tnumMax,tpriceMax,currentPage);
+		ActionContext.getContext().getValueStack().push(pageBean);
 		return "searchSuccess";
 	}
 }

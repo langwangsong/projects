@@ -103,4 +103,11 @@ public class CourseTypeServiceImpl implements CourseTypeService {
 		pageBean.setList(list);
 		return pageBean;
 	}
+	/**
+	 * 业务层中查询所有课程类别的方法
+	 */
+	@Override
+	public List<CourseType> findAll() {
+		return courseTypeDao.findAll();
+	}
 }

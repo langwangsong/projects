@@ -7,6 +7,7 @@ import org.hibernate.criterion.DetachedCriteria;
 
 import cn.itcast.crm.dao.CourseTypeDao;
 import cn.itcast.crm.domain.CourseType;
+import cn.itcast.crm.utils.PageHibernateCallBack;
 /**
  * 课程类别的DAO实现类
  * @author Mr_lang
@@ -60,7 +61,29 @@ public class CourseTypeDaoImpl extends BaseDaoImpl<CourseType> implements Course
 	public List<CourseType> findByPage(CourseType courseType, Integer tnumMax, Double tpriceMax, int begin,
 			int pageSize) {
 		String hql = "from CourseType where 1=1";
-		return null;
+		List<Object> pList = new ArrayList<Object>();
+		if(courseType.getTname()!=null && !"".equals(courseType.getTname())){
+			hql += " and tname like ?";
+			pList.add("%"+courseType.getTname()+"%");
+		}
+		if(courseType.getTnum()!=null){
+			hql += " and tnum >= ?";
+			pList.add(courseType.getTnum());
+		}
+		if(tnumMax!=null){
+			hql += " and tnum <= ?";
+			pList.add(tnumMax);
+		}
+		if(courseType.getTprice()!=null){
+			hql += " and tprice >= ?";
+			pList.add(courseType.getTprice());
+		}
+		if(tpriceMax!=null){
+			hql += " and tprice <= ?";
+			pList.add(tpriceMax);
+		}
+		List<CourseType> list = this.getHibernateTemplate().execute(new PageHibernateCallBack<CourseType>(hql, pList.toArray(), begin, pageSize));
+		return list;
 	}
 	
 }
