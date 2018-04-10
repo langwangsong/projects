@@ -36,6 +36,8 @@
 			<result name="editSuccess">/jsps/coursetype/edit.jsp</result>
 			<result name="updateSuccess" type="redirectAction">courseType_findByPage.action</result>
 			<result name="deleteSuccess" type="redirectAction">courseType_findByPage.action</result>
+			<result name="serachUI">/jsps/coursetype/search.jsp</result>
+			<result name="searchSuccess">/jsps/coursetype/searchList.jsp</result>
 		</action>
 	</package>
 </struts>

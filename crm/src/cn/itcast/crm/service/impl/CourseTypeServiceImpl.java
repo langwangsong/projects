@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.crm.dao.CourseTypeDao;
@@ -71,5 +72,35 @@ public class CourseTypeServiceImpl implements CourseTypeService {
 	@Override
 	public void delete(CourseType courseType) {
 		courseTypeDao.delete(courseType);
+	}
+	/**
+	 * 业务层高级查询课程类别的方法
+	 */
+	@Override
+	public List<CourseType> search(DetachedCriteria criteria) {
+		return courseTypeDao.search(criteria);
+	}
+	/**
+	 * 业务层带分页的高级查询
+	 */
+	@Override
+	public PageBean<CourseType> searchByHQL(CourseType courseType, Integer tnumMax, Double tpriceMax, int currentPage) {
+		PageBean<CourseType> pageBean = new PageBean<CourseType>();
+		pageBean.setCurrentPage(currentPage);
+		//设置每页显示的记录数
+		int pageSize = PageBean.PAGESIZE;
+		pageBean.setPageSize(pageSize);
+		//设置总记录数
+		int totalCount = courseTypeDao.findCount(courseType,tnumMax,tpriceMax);
+		pageBean.setTotalCount(totalCount);
+		//设置总页数
+		double tc = totalCount;
+		Double num = Math.ceil(tc/pageSize);
+		pageBean.setTotalPage(num.intValue());
+		//设置每页显示的数据集合
+		int begin = (currentPage-1)*pageSize;
+		List<CourseType> list = courseTypeDao.findByPage(courseType,tnumMax,tpriceMax,begin, pageSize);
+		pageBean.setList(list);
+		return pageBean;
 	}
 }

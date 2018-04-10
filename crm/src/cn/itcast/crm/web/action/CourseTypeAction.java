@@ -1,6 +1,11 @@
 package cn.itcast.crm.web.action;
 
+import java.util.List;
+
 import javax.annotation.Resource;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -79,5 +84,55 @@ public class CourseTypeAction extends ActionSupport implements ModelDriven<Cours
 		courseType = courseTypeService.findById(courseType.getTid());
 		courseTypeService.delete(courseType);
 		return "deleteSuccess";
+	}
+	/**
+	 * 课程类别高级查询跳转的执行方法：serachUI
+	 */
+	public String serachUI(){
+		return "serachUI";
+	}
+	//接收高级查询的参数
+	private Integer tnumMax;//学时的最大值
+	private Double tpriceMax;//学费的最大值
+	
+	public void setTnumMax(Integer tnumMax) {
+		this.tnumMax = tnumMax;
+	}
+
+	public void setTpriceMax(Double tpriceMax) {
+		this.tpriceMax = tpriceMax;
+	}
+
+	/**
+	 * 高级查询的执行方法：search:QBC方式的高级查询
+	 */
+	/*public String search(){
+		DetachedCriteria criteria = DetachedCriteria.forClass(CourseType.class);
+		if(courseType.getTname()!=null && !"".equals(courseType.getTname())){
+			criteria.add(Restrictions.like("tname", "%"+courseType.getTname()+"%"));
+		}
+		if(courseType.getTnum()!=null){
+			criteria.add(Restrictions.ge("tnum", courseType.getTnum()));
+		}
+		if(tnumMax!=null){
+			criteria.add(Restrictions.le("tnum", tnumMax));
+		}
+		if(courseType.getTprice()!=null){
+			criteria.add(Restrictions.ge("tprice", courseType.getTprice()));
+		}
+		if(tpriceMax!=null){
+			criteria.add(Restrictions.le("tprice", tpriceMax));
+		}
+		List<CourseType> list = courseTypeService.search(criteria);
+		ActionContext.getContext().getValueStack().set("list", list);
+		return "searchSuccess";
+	}*/
+	/**
+	 * 高级查询带分页的执行方法：search:HQL方式
+	 */
+	public String search(){
+		//调用业务层
+		PageBean<CourseType> pageBean = courseTypeService.searchByHQL(courseType,tnumMax,tpriceMax,currentPage);
+		return "searchSuccess";
 	}
 }
