@@ -13,9 +13,9 @@
 		d = new dTree('d');
 		d.add('01','-1','CRM管理系统');
 		d.add('0101','01','咨询部');
-		d.add('010101','0101','咨询学生管理','../employee/listEmployee.html','','right');
+		d.add('010101','0101','咨询学生管理','${pageContext.request.contextPath}/visitStudent_findByPage.action','','right');
 		d.add('0102','01','学工部');
-		d.add('010201','0102','在校学生管理','../role/listRole.html','','right');
+		d.add('010201','0102','在校学生管理','${pageContext.request.contextPath}/student_findByPage.action','','right');
 		d.add('0103','01','教学部');
 		d.add('010301','0103','班级管理','${pageContext.request.contextPath}/classes_findByPage.action','','right');
 		d.add('010302','0103','课程类别','${pageContext.request.contextPath}/courseType_findByPage.action','','right');

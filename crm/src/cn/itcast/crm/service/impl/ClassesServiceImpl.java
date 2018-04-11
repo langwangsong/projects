@@ -71,4 +71,11 @@ public class ClassesServiceImpl implements ClassesService {
 	public void delete(Classes classes) {
 		classesDao.delete(classes);
 	}
+	/**
+	 * 业务层中查询所有未结课的班级
+	 */
+	@Override
+	public List<Classes> findAllNotEnd() {
+		return classesDao.findAllNotEnd();
+	}
 }

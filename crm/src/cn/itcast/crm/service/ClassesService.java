@@ -22,4 +22,6 @@ public interface ClassesService {
 	void update(Classes classes);
 
 	void delete(Classes classes);
+
+	List<Classes> findAllNotEnd();
 }

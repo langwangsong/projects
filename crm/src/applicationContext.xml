@@ -43,6 +43,8 @@
 				<value>cn/itcast/crm/domain/Employee.hbm.xml</value>
 				<value>cn/itcast/crm/domain/CourseType.hbm.xml</value>
 				<value>cn/itcast/crm/domain/Classes.hbm.xml</value>
+				<value>cn/itcast/crm/domain/VisitStudent.hbm.xml</value>
+				<value>cn/itcast/crm/domain/Student.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -60,6 +62,12 @@
 	<bean id="classesAction" class="cn.itcast.crm.web.action.ClassesAction" scope="prototype">
 	
 	</bean>
+	<bean id="visitStudentAction" class="cn.itcast.crm.web.action.VisitStudentAction" scope="prototype">
+	
+	</bean>
+	<bean id="studentAction" class="cn.itcast.crm.web.action.StudentAction" scope="prototype">
+	
+	</bean>
 	<!-- 配置service -->
 	<bean id="employeeService" class="cn.itcast.crm.service.impl.EmployeeServiceImpl">
 		<property name="employeeDao" ref="employeeDao"></property>
@@ -71,6 +79,8 @@
 		
 	</bean>
 	<bean id="classesService" class="cn.itcast.crm.service.impl.ClassesServiceImpl"></bean>
+	<bean id="visitStudentService" class="cn.itcast.crm.service.impl.VisitStudentServiceImpl"></bean>
+	<bean id="studentService" class="cn.itcast.crm.service.impl.StudentServiceImpl"></bean>
 	<!-- 配置dao -->
 	<bean id="employeeDao" class="cn.itcast.crm.dao.impl.EmployeeDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
@@ -82,6 +92,12 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean id="classesDao" class="cn.itcast.crm.dao.impl.ClassesDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="visitStudentDao" class="cn.itcast.crm.dao.impl.VisitStudentDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="studentDao" class="cn.itcast.crm.dao.impl.StudentDaoImpl" >
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- 配置事务管理器 -->

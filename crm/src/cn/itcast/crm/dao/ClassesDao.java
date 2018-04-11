@@ -1,5 +1,7 @@
 package cn.itcast.crm.dao;
 
+import java.util.List;
+
 import cn.itcast.crm.domain.Classes;
 
 /**
@@ -8,5 +10,7 @@ import cn.itcast.crm.domain.Classes;
  *
  */
 public interface ClassesDao extends BaseDao<Classes> {
+
+	List<Classes> findAllNotEnd();
 
 }

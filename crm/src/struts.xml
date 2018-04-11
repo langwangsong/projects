@@ -47,5 +47,18 @@
 			<result name="updateSuccess" type="redirectAction">classes_findByPage</result>
 			<result name="deleteSuccess" type="redirectAction">classes_findByPage</result>
 		</action>
+		<action name="visitStudent_*" class="visitStudentAction" method="{1}">
+			<result name="findByPage">/jsps/visitstudent/list.jsp</result>
+			<result name="saveUI">/jsps/visitstudent/save.jsp</result>
+			<result name="saveSuccess" type="redirectAction">visitStudent_findByPage</result>
+			<result name="editSuccess">/jsps/visitstudent/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">visitStudent_findByPage</result>
+			<result name="deleteSuccess" type="redirectAction">visitStudent_findByPage</result>
+			<result name="inClassUI">/jsps/visitstudent/inClass.jsp</result>
+			<result name="inClass" type="redirectAction">visitStudent_findByPage</result>
+		</action>
+		<action name="student_*" class="studentAction" method="{1}">
+			<result name="findByPage">/jsps/student/list.jsp</result>
+		</action>
 	</package>
 </struts>
