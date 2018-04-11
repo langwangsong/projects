@@ -36,7 +36,7 @@ FONT-SIZE: 12px; COLOR: #4b4b4b; LINE-HEIGHT: 18px; TEXT-DECORATION: none
 		<tr>
 			<td background="${pageContext.request.contextPath}/images/right.jpg"  width="740" height="412"></td>
 			<td class="login_msg" width="400">
-				<s:form action="employee_login" method="post" namespace="/" theme="simple">
+				<s:form action="employee_login" method="post" namespace="/" theme="simple" target="_parent">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/images/title.png" width="185" height="26"/><br/><br/>
 					<s:actionerror/><br/>
 					<s:fielderror></s:fielderror><br/>

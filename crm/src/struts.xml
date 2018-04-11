@@ -4,6 +4,10 @@
 	"http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 	<package name="crm" extends="struts-default" namespace="/">
+		<interceptors>
+			<interceptor name="priInterceptor" class="cn.itcast.crm.web.interceptor.PrivilegeInterceptor"></interceptor>
+			
+		</interceptors>
 		<global-results>
 			<result name="login">/jsps/login.jsp</result>
 		</global-results>
@@ -20,6 +24,11 @@
 			<result name="editSuccess">/jsps/employee/edit.jsp</result>
 			<result name="updateSuccess" type="redirectAction">employee_findByPage.action</result>
 			<result name="deleteSuccess" type="redirectAction">employee_findByPage.action</result>
+			
+			<interceptor-ref name="priInterceptor">
+				<param name="excludeMethods">registUI,regist,login</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		<action name="department_*" class="departmentAction" method="{1}">
 			<result name="findByPage">/jsps/department/list.jsp</result>
@@ -28,6 +37,9 @@
 			<result name="editSuccess">/jsps/department/edit.jsp</result>
 			<result name="updateSuccess" type="redirectAction">department_findByPage.action</result>
 			<result name="deleteSuccess" type="redirectAction">department_findByPage.action</result>
+			
+			<interceptor-ref name="priInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		<action name="courseType_*" class="courseTypeAction" method="{1}">
 			<result name="findByPage">/jsps/coursetype/list.jsp</result>
@@ -38,6 +50,9 @@
 			<result name="deleteSuccess" type="redirectAction">courseType_findByPage.action</result>
 			<result name="serachUI">/jsps/coursetype/search.jsp</result>
 			<result name="searchSuccess">/jsps/coursetype/searchList2.jsp</result>
+			
+			<interceptor-ref name="priInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		<action name="classes_*" class="classesAction" method="{1}">
 			<result name="findByPage">/jsps/classes/list.jsp</result>
@@ -46,6 +61,9 @@
 			<result name="editSuccess">/jsps/classes/edit.jsp</result>
 			<result name="updateSuccess" type="redirectAction">classes_findByPage</result>
 			<result name="deleteSuccess" type="redirectAction">classes_findByPage</result>
+			
+			<interceptor-ref name="priInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		<action name="visitStudent_*" class="visitStudentAction" method="{1}">
 			<result name="findByPage">/jsps/visitstudent/list.jsp</result>
@@ -56,9 +74,15 @@
 			<result name="deleteSuccess" type="redirectAction">visitStudent_findByPage</result>
 			<result name="inClassUI">/jsps/visitstudent/inClass.jsp</result>
 			<result name="inClass" type="redirectAction">visitStudent_findByPage</result>
+			
+			<interceptor-ref name="priInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		<action name="student_*" class="studentAction" method="{1}">
 			<result name="findByPage">/jsps/student/list.jsp</result>
+			
+			<interceptor-ref name="priInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 	</package>
 </struts>

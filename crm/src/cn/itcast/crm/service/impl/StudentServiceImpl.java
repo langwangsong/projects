@@ -34,7 +34,7 @@ public class StudentServiceImpl implements StudentService {
 		pageBean.setTotalCount(totalCount);
 		//设置总页数
 		double tc = totalCount;
-		Double num = Math.ceil(tc/pageSize)*pageSize;
+		Double num = Math.ceil(tc/pageSize);
 		pageBean.setTotalPage(num.intValue());
 		//设置集合：
 		int begin = (currentPage -1)*pageSize;
