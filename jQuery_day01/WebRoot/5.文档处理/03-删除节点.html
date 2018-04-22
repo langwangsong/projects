@@ -12,9 +12,20 @@
 			 <li id="tj" name="tianjin">天津<p>河西区</p></li>
 			 <li id="cq" name="chongqing">重庆</li>
 		 </ul>
-		<p class="hello">Hello</p> how are <p>you?</p> 
+		<p class="hello">Hello how are you?</p> 
 	</body>
 <script type="text/javascript">
+	//1、清空 标签体
+	//$("#city").empty();
+	//2、现将city 移除，再添加到p的后面
+		//#1绑定数据
+	$("#city").data("ds","屌丝");	
+	//var $city = $("#city").remove(); //绑定的数据不存在
+	var $city = $("#city").detach(); //绑定的数据存在
+	$("body").append($city);
+		//#2获得绑定的数据
+	alert($("#city").data("ds"));
+	
 </script>
    
 </html>

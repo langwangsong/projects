@@ -21,7 +21,14 @@
        
 	</body>
 <script type="text/javascript">
-	
+	//1、将city放到p2的后面
+	var $city = $("#city");
+	var $p2 = $("#p2");
+	//$p2.after($city);
+	//$city.insertAfter($p2);
+	//2、将city放到p2的前面
+	//$p2.before($city);
+	$city.insertBefore($p2);
 </script>
    
 </html>

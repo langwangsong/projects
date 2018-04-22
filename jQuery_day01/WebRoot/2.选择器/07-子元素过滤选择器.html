@@ -8,7 +8,29 @@
  <script src="./script/assist.js" type="text/javascript"></script>
  <link rel="stylesheet" type="text/css" href="./css/style.css" />  
  <script type="text/javascript">
-  </script>
+ $(document).ready(function(){
+//  <input type="button" value="选取每个class为one的div父元素下的第2个子元素." id="btn1"/>
+	$("#btn1").click(function(){
+		$("div.one :nth-child(2)").css("background-color","#0f0");
+		//$("div.one") //所有的div中,class为one的 -->css语法
+		//$("div .one") //层次选择器，所有的div内，有.one子元素（包括孙）
+		//$("div:nth-child(2)") //如果前面是元素（标签名），就可以直接过滤子元素
+		//$("div.one :nth-child(2)")//如果前面不是元素，必须添加空格
+	});
+//  <input type="button" value="选取每个class为one的div父元素下的第一个子元素." id="btn2"/>
+	$("#btn2").click(function(){
+		$("div.one :first-child").css("background-color","#0f0");
+	});
+//  <input type="button" value="选取每个class为one的div父元素下的最后一个子元素." id="btn3"/>
+	$("#btn3").click(function(){
+		$("div.one :last-child").css("background-color","#0f0");
+	});
+//  <input type="button" value="如果class为one的div父元素下的仅仅只有一个子元素，那么选中这个子元素." id="btn4"/>
+	$("#btn4").click(function(){
+		$("div.one :only-child").css("background-color","#0f0");
+	});
+ });
+ </script>
 </head>
 <body>
   <button id="reset">手动重置页面元素</button>

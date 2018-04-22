@@ -9,6 +9,29 @@
  <link rel="stylesheet" type="text/css" href="./css/style.css" />  
  
   <script type="text/javascript">
+  $(document).ready(function(){
+// <button id="btn1">对表单内 可用input 赋值操作.</button>
+	$("#btn1").click(function(){
+		$("input:enabled").val("aaa");
+	});
+// <button id="btn2">对表单内 不可用input 赋值操作.</button>
+	$("#btn2").click(function(){
+		$("input:disabled").val("bbbbb");
+	});
+// <button id="btn3">获取多选框选中的内容，并写入到div中.</button>
+	$("#btn3").click(function(){
+		//alert($("input:checkbox").size());
+		$("input[name='newsletter']:checked").each(function(){	
+			$("#checkboxDivId").append($(this).val()).append("<br/>");
+		});
+	});
+// <button id="btn4">获取下拉框选中的内容.</button>
+	$("#btn4").click(function(){
+		$(":selected").each(function(){
+			$("#selectDivId").append($(this).html()).append("<br/>");
+		});
+	});
+  });
   </script>
 
 </head>

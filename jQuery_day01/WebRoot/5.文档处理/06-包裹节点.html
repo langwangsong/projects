@@ -12,8 +12,15 @@
 		<strong title="jQuery">jQuery</strong>
 	</body>
 	<script type="text/javascript">
+		//A.wrap(B) ,使用B将每一个A包裹
+		$("strong").wrap("<a href=''></a>");
+		//A.wrapAll(B),使用B将所有的A包裹
+		//$("strong").wrapAll("<a href=''></a>");
+		//A.wrapInner(B),使用B将A标签体包裹
+		
+		//unwrap(),将父元素删除
+		$("strong").wrapInner("<a href=''></a>");
 	</script>
-   
 </html>
 
 
