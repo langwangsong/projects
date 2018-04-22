@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+	<!-- 引用js类库 -->
+	<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+<body>
+	<input type="text" id="username" value="jack"/>
+	<script type="text/javascript">
+		//1、获得jQuery对象,在jQuery中， $==jQuery
+			//语法1：$("选择器")
+			//雨大2：jQuery("选择器")
+		var username = $("#username");
+		alert(username.val());
+		//val()函数可以获取value属性的值
+	</script>
+</body>
+</html>

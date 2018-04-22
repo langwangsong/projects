@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+	<script src="../js/jquery-1.8.3.js"></script>
+<body>
+	<input type="text" id="username" value="jack"/>
+	<script type="text/javascript">
+		//1、dom:document object model 文档对象模型，操作结构化文档(html,xml)
+		//*dom解析方式：将需要解析的文档全部加载到内存，形成一颗dom树。
+		//*dom树名称：元素Element，属性：Attribute，文本Text等
+		//*如果需要使用dom解析，需要获得document对象，进行相应操作
+		//2、 js dom操作,documen 表示的是当前html页面内容，window表示的是打开html的窗口
+		var username = document.getElementById("username");
+		//alert(username.value);
+		//3、dom对象转换成jQuery对象
+		//*语法：$(dom对象)
+		//*建议“jQuery对象使用$开头
+		var $username = $(username);
+		//alert($username.val());
+		//4、jQuery 对象转换成 dom对象
+		// * jQuery对象内部使用的是数组来保存所有的内容，使用id操作时，数组中只保存一个内容
+		var username2 = $username[0];
+		//alert(username2.value);
+		var username3 = $username.get(0);
+		alert(username3.value);
+		//注意：jQuery对象和dom对象，彼此只能使用自己的API（方法或者函数）
+	</script>
+</body>
+</html>
