@@ -21,6 +21,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <a href="${pageContext.request.contextPath }/7.ajax/1.ajax.html">ajax操作</a>
   </body>
 </html>

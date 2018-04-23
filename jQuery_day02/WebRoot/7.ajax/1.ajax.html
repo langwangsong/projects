@@ -7,7 +7,77 @@
 	<script type="text/javascript">
 		
 		$(function(){
-
+			//1.1请求路径
+			var url = "/jQuery_day02/SendDataServlet";
+			//1.2请求参数
+			var params = {"username":"杰克","password":"1234"};
+			//2点击事件
+			$(":button").click(function(){
+				//2.1load()函数
+				/*
+					返回值：jQueryload(url,[data],[callback])
+					参数一：url 请求路径
+					参数二：data 请求参数
+					参数三：callback 成功之后 的回调函数-->xmihttp.onreadystatechange=function(){}
+					
+					如果没有参数：底层方法get请求
+					如果有参数：底层方法post请求
+					
+					在函数体内部，js通过内置对象arguments获得所有的参数
+					load()函数获得的数据都是字符串，如果是json数据，需要将其手动转换成json对象
+				
+				$(this).load(url,params,function(data){
+					//json字符串-->json对象
+					var jsonData = eval("("+data+")");
+					alert(jsonData.message);
+				});
+				*/
+				//$.get 全局函数    请求参数有中文乱码问题 new String(username.getBytes("ISO-8859-1"),"UTF-8")
+				/*
+					jQuery.get(url,[data],[callback],[type])
+					参数一，二，三同上
+					参数四：type，响应数据的类型
+					1)如果Servlet发送 application/json;charset=UTF-8类型，get函数获得对象
+						data.message
+					2)如果Servlet发送text/html;charset=UTF-8类型，get函数获得字符串
+						此时需要“参数四”设置类型
+				*/
+				/* $.get(url,params,function(data){
+					alert(data);
+				});//,"json"); */
+				//$.post
+				/*
+					$.post(url,[data],[callback],[type])
+					参数同上
+				*/
+				/* $.post(url,params,function(data){
+					alert(data);
+				}); */
+				//4、$.ajax()
+				/*
+					jQuery.ajax(url,[settings])
+					常用jQuery.ajax(settings) -->使用json设置多个数据
+						url:发送请求的地址
+						data:发送到服务器的数据，请求参数
+						type:请求方式（GET POST）
+						success:成功的回调函数fn(data,textStatus,jqXHR)
+						error:请求失败时调用此函数
+						dataType:预期服务器返回的数据类型，xml,html,script,json,jsonp,text
+						async: 是否异步，默认值是true
+				*/
+				$.ajax({
+					"url":url,
+					"data":params,
+					"type":"post",
+					"success":function(data){
+						alert(data);
+					},
+					"error":function(){
+						alert("服务器异常");
+					},
+					"dataType":"json"
+				});
+			});
 		});
 	</script>
 	

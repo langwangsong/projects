@@ -8,14 +8,48 @@
 	<script type="text/javascript">
 		
 		$(document).ready(function(){
-			
-			
+			/* 
+				1、动态创建5个DIV（中奖人员）
+				2、5个div滚动效果
+			 */
+			 //1、创建
+			 for(var i=0;i<5;i++){
+			 	createDiv();
+			 }
+			 //2、定时执行下面代码
+			 setInterval("showDiv()","1000");
+			 
 		});
+		function showDiv(){
+			//2、将第一个div隐藏,定时执行下面代码
+			 $("div:first").slideUp(1000,function(){
+			 	$(this).appendTo("body").slideDown(1000);
+			 });
+		}
+		var num = 1;
+		function createDiv(){
+			//1、div
+			var $div = $("<div />");
+			//2、样式
+			$div.addClass("newDiv");
+			//3、标签体数字
+			$div.html(num++);
+			//4、追加到body
+			$("body").append($div);
+		}
 		
 	</script>
+	<style type="text/css">
+		.newDiv{
+			border:1px solid #000;
+			width:400px;
+			height:100px;
+			margin:5px;
+			font-size:30px;
+		}
+	</style>
 </head>
 <body>
-	
-		
+
 </body>
 </html>
