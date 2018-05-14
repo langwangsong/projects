@@ -48,5 +48,10 @@
 		地址：<input type="text" name="maps['address']" id="address" /><br/>
 		<input type="submit" value="提交" /><br/>
 	</form>	
+	<hr color="blue" size="12" /> <br/>
+	<form action="${pageContext.request.contextPath}/user/param.do" method="post">
+		ID：<input type="text" name="myID" id="id" /><br/>
+		<input type="submit" value="提交" /><br/>
+	</form>	
 </body>
 </html>
