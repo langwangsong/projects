@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 41992788e007a45e7de983546cd3f9c3be912a1d
 import cn.itcast.domain.User;
 
 @Controller
